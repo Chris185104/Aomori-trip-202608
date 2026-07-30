@@ -161,7 +161,13 @@ function setBanner(mode) {
   const el = document.getElementById('sync-banner');
   if (mode === 'ok') {
     el.className = 'ok';
-    el.textContent = '☁️ 雲端同步已連接：您和旅伴排的順序會即時同步。';
+    el.textContent = '☁️ 雲端同步已連接：已收到雲端最新資料，您和旅伴排的順序會即時同步。';
+  } else if (mode === 'connecting') {
+    el.className = 'off';
+    el.textContent = '🔄 連接雲端中，請稍候……（如果超過10秒還是這樣，代表這個瀏覽器連不上雲端）';
+  } else if (mode === 'timeout') {
+    el.className = 'off';
+    el.textContent = '⚠️ 連線逾時：設定碼沒問題，但這個瀏覽器一直收不到雲端資料，可能是快取或網路限制，請試試看強制重新整理（電腦按 Cmd/Ctrl+Shift+R，手機可清一下瀏覽器快取）。';
   } else {
     el.className = 'off';
     el.textContent = '⚠️ 尚未連接雲端同步，目前排序只暫存在這台裝置，重新整理／換裝置會看不到最新結果。';
@@ -177,17 +183,28 @@ function initFirebase() {
     firebase.initializeApp(firebaseConfig);
     fbRef = firebase.database().ref('trip/state');
     fbEnabled = true;
-    setBanner('ok');
+    setBanner('connecting');
+    let fbConfirmed = false;
+    const timeoutId = setTimeout(() => {
+      if (!fbConfirmed) setBanner('timeout');
+    }, 10000);
     fbRef.on('value', snap => {
+      if (!fbConfirmed) { fbConfirmed = true; clearTimeout(timeoutId); }
       if (dragInProgress || editingInProgress) return;
       const val = snap.val();
       if (val && val.itemsById) {
         state = val;
         saveLocal();
         renderAll();
+        setBanner('ok');
       } else {
         fbRef.set(state);
+        setBanner('ok');
       }
+    }, err => {
+      console.error('Firebase 監聽失敗', err);
+      clearTimeout(timeoutId);
+      setBanner('timeout');
     });
   } catch (e) {
     console.error(e);
@@ -195,9 +212,30 @@ function initFirebase() {
   }
 }
 
+// 手機/瀏覽器從背景切回前景時，強制重新抓一次雲端最新資料
+// （手機鎖螢幕或切背景常常會讓即時連線斷掉、不會自動補抓）
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && fbEnabled && fbRef) {
+    fbRef.once('value').then(snap => {
+      if (dragInProgress || editingInProgress) return;
+      const val = snap.val();
+      if (val && val.itemsById) {
+        state = val;
+        saveLocal();
+        renderAll();
+      }
+    }).catch(err => console.error('回到前景重新抓取失敗', err));
+  }
+});
+
 function persist() {
   saveLocal();
-  if (fbEnabled && fbRef) fbRef.set(state);
+  if (fbEnabled && fbRef) {
+    fbRef.set(state).catch(err => {
+      console.error('Firebase 寫入失敗', err);
+      alert('同步失敗，這筆變更沒有送到雲端：' + err.message + '\n（本機仍會暫存，請檢查網路後重新整理再試一次）');
+    });
+  }
 }
 
 function escapeHtml(s) {
