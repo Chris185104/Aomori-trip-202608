@@ -76,12 +76,24 @@
       <input type="text" id="add-time" placeholder="時間 例如 15:30">
       <input type="text" id="add-name" placeholder="店名／地點">
       <input type="text" id="add-maps" placeholder="Google Maps連結（可不填）" style="flex-basis:100%;">
+      <input type="text" id="add-desc" placeholder="簡介（可不填）" style="flex-basis:100%;">
       <button class="confirm" id="add-confirm">新增</button>
     </div>
   </div>
 
   <h2 class="section-h" id="pool-title">🍽 美食＆景點候選（拖曳到上面行程表）</h2>
   <ul class="card-list" id="pool-list"></ul>
+
+  <div class="add-row">
+    <button class="add-toggle" id="add-pool-toggle">＋ 新增一筆候選（美食／景點）</button>
+    <div class="add-form" id="add-pool-form">
+      <input type="text" id="add-pool-tier" placeholder="標籤 例如：美食備選／景點">
+      <input type="text" id="add-pool-name" placeholder="店名／地點">
+      <input type="text" id="add-pool-maps" placeholder="Google Maps連結（可不填）" style="flex-basis:100%;">
+      <input type="text" id="add-pool-desc" placeholder="簡介（可不填）" style="flex-basis:100%;">
+      <button class="confirm" id="add-pool-confirm">新增</button>
+    </div>
+  </div>
 </main>
 
 <footer class="note">資料來源：食べログ各分區排行榜／食べログまとめ／JR東日本時刻表／弘前市觀光協會／青森ねぶた祭・秋田竿燈まつり官方網站<br>拖曳排序會即時同步給旅伴（需完成雲端連接設定）</footer>
@@ -134,6 +146,35 @@ function buildInitialState() {
 }
 
 let state = buildInitialState();
+const freshBaseline = buildInitialState(); // 保留一份「檔案內建最新資料」，用來跟雲端做差異比對
+let hasMergedOnce = false;
+
+// 只把「雲端筆記本裡還沒有的全新項目」補進去，不覆蓋、不刪除、不搬動任何既有內容
+function mergeNewItemsFromFile(remoteState) {
+  const newIds = [];
+  for (const id in freshBaseline.itemsById) {
+    if (!remoteState.itemsById[id]) {
+      remoteState.itemsById[id] = freshBaseline.itemsById[id];
+      newIds.push(id);
+    }
+  }
+  if (newIds.length === 0) return false;
+  PAYLOAD.dayOrder.forEach(dayId => {
+    remoteState.itineraryOrder[dayId] = remoteState.itineraryOrder[dayId] || [];
+    remoteState.poolOrder[dayId] = remoteState.poolOrder[dayId] || [];
+    const freshItinIds = freshBaseline.itineraryOrder[dayId] || [];
+    newIds.forEach(id => {
+      const alreadyPlaced = remoteState.itineraryOrder[dayId].includes(id) || remoteState.poolOrder[dayId].includes(id);
+      if (alreadyPlaced) return;
+      const belongsToThisDay = freshItinIds.includes(id) || (freshBaseline.poolOrder[dayId] || []).includes(id);
+      if (belongsToThisDay) {
+        // 一律先放進候選清單，不自動排進行程表打亂使用者已經排好的順序，由使用者自己拖曳決定
+        remoteState.poolOrder[dayId].push(id);
+      }
+    });
+  });
+  return true;
+}
 
 function loadLocal() {
   try {
@@ -193,7 +234,13 @@ function initFirebase() {
       if (dragInProgress || editingInProgress) return;
       const val = snap.val();
       if (val && val.itemsById) {
-        state = val;
+        let merged = val;
+        if (!hasMergedOnce) {
+          hasMergedOnce = true;
+          const changed = mergeNewItemsFromFile(merged);
+          if (changed) fbRef.set(merged);
+        }
+        state = merged;
         saveLocal();
         renderAll();
         setBanner('ok');
@@ -420,14 +467,38 @@ document.getElementById('add-confirm').addEventListener('click', () => {
   const timeVal = document.getElementById('add-time').value.trim() || '--:--';
   const nameVal = document.getElementById('add-name').value.trim();
   const mapsVal = document.getElementById('add-maps').value.trim();
+  const descVal = document.getElementById('add-desc').value.trim();
   if (!nameVal) { alert('請至少輸入店名／地點'); return; }
   const id = 'custom-' + Date.now();
-  state.itemsById[id] = { name: nameVal, time: timeVal, desc: '', maps: mapsVal || null, custom: true, tier: null, kind: 'itinerary' };
+  state.itemsById[id] = { name: nameVal, time: timeVal, desc: descVal, maps: mapsVal || null, custom: true, tier: null, kind: 'itinerary' };
   state.itineraryOrder[currentDay].push(id);
   document.getElementById('add-time').value = '';
   document.getElementById('add-name').value = '';
   document.getElementById('add-maps').value = '';
+  document.getElementById('add-desc').value = '';
   document.getElementById('add-form').classList.remove('open');
+  persist();
+  renderLists();
+});
+
+// ---- 新增候選（美食／景點）----
+document.getElementById('add-pool-toggle').addEventListener('click', () => {
+  document.getElementById('add-pool-form').classList.toggle('open');
+});
+document.getElementById('add-pool-confirm').addEventListener('click', () => {
+  const tierVal = document.getElementById('add-pool-tier').value.trim();
+  const nameVal = document.getElementById('add-pool-name').value.trim();
+  const mapsVal = document.getElementById('add-pool-maps').value.trim();
+  const descVal = document.getElementById('add-pool-desc').value.trim();
+  if (!nameVal) { alert('請至少輸入店名／地點'); return; }
+  const id = 'custompool-' + Date.now();
+  state.itemsById[id] = { name: nameVal, time: null, desc: descVal, maps: mapsVal || null, custom: true, tier: tierVal || '自訂候選', kind: 'custom' };
+  state.poolOrder[currentDay].push(id);
+  document.getElementById('add-pool-tier').value = '';
+  document.getElementById('add-pool-name').value = '';
+  document.getElementById('add-pool-maps').value = '';
+  document.getElementById('add-pool-desc').value = '';
+  document.getElementById('add-pool-form').classList.remove('open');
   persist();
   renderLists();
 });
