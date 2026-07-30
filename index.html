@@ -1,585 +1,383 @@
 <!DOCTYPE html>
-<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>青森・弘前・秋田 三日兩夜手冊</title>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>青森・弘前・秋田 三日兩夜手冊（可拖曳版）</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@500;700&display=swap');
-*{box-sizing:border-box;}
-body{font-family:'Noto Sans TC','Zen Maru Gothic',sans-serif;background:#fdf6ec;color:#3a3230;margin:0;padding:0 0 60px;}
-.hero{background:linear-gradient(120deg,#7a3b2e,#c0664f);color:#fff;padding:40px 20px 30px;text-align:center;}
-.hero h1{font-size:26px;font-weight:700;}
-.hero p{margin-top:8px;font-size:13px;opacity:.9;}
-.wrap{max-width:960px;margin:0 auto;padding:24px 18px;}
-h1.section-title{font-size:22px;color:#7a3b2e;border-bottom:2px solid #e0a63a;padding-bottom:6px;margin:40px 0 16px;}
-.days{display:flex;flex-direction:column;gap:22px;}
-.day{background:#fffdf9;border-radius:16px;box-shadow:0 3px 14px rgba(122,59,46,.10);border:1px solid #eee0cf;overflow:hidden;}
-.day-head{padding:16px 20px 14px;color:#fff;}
-.day1 .day-head{background:linear-gradient(120deg,#c0392b,#e0664f);}
-.day2 .day-head{background:linear-gradient(120deg,#1f6f5c,#3a9d84);}
-.day3 .day-head{background:linear-gradient(120deg,#2e5c8a,#4f8ac2);}
-.day-head .d{font-size:12px;opacity:.85;}
-.day-head .t{font-size:21px;font-weight:700;margin-top:2px;}
-.day-body{padding:16px 20px 18px;}
-.day-intro{font-size:13.5px;line-height:1.7;color:#6b5233;background:#fff7e0;border-left:4px solid #e0a63a;border-radius:10px;padding:10px 14px;margin-bottom:16px;font-style:italic;}
-.time-card{border-left:3px solid #e0a63a;padding:6px 0 6px 14px;margin-bottom:14px;}
-.tc-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
-.tc-time{font-weight:700;color:#a06a3f;font-size:13px;}
-.tc-name{font-weight:700;color:#4a3a2e;font-size:15px;}
-.tc-desc{font-size:13px;line-height:1.65;color:#5a4c40;margin-top:4px;}
-.tc-maps{display:inline-block;margin-top:6px;font-size:12px;text-decoration:none;color:#2e6b9c;border:1px solid #bcd6ea;background:#eef6fb;padding:3px 10px;border-radius:20px;font-weight:500;}
-.tc-maps:hover{background:#dcecf7;}
-.risk-box{margin-top:10px;padding:10px 14px;background:#fdece9;border-radius:12px;border:1.5px solid #e0a63a;font-size:12.5px;color:#8f3125;line-height:1.7;}
-.rb-line{font-weight:600;}
-.rb-line + .rb-line{margin-top:6px;}
-h2{font-size:19px;color:#7a3b2e;border-left:5px solid #e0a63a;padding-left:10px;margin:26px 0 10px;}
-h3{font-size:15px;color:#a06a3f;margin:16px 0 8px;}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
-.card{background:#fffdf9;border:1px solid #eee0cf;border-radius:14px;padding:14px 16px;box-shadow:0 2px 8px rgba(122,59,46,.06);display:flex;flex-direction:column;gap:6px;}
-.card .name{font-weight:700;font-size:14.5px;color:#4a3a2e;}
-.card .ja{font-size:11.5px;color:#a89686;}
-.card .score{font-size:11.5px;color:#9c6c15;background:#fff1cf;display:inline-block;padding:2px 8px;border-radius:8px;width:fit-content;}
-.card .note{font-size:12px;line-height:1.55;color:#5a4c40;}
-.badge{font-size:10px;background:#fde3e0;color:#b23a2e;padding:1px 7px;border-radius:8px;margin-left:6px;}
-.maps-btn{margin-top:4px;align-self:flex-start;font-size:11.5px;text-decoration:none;color:#2e6b9c;border:1px solid #bcd6ea;background:#eef6fb;padding:4px 10px;border-radius:20px;font-weight:500;}
-.maps-btn:hover{background:#dcecf7;}
-footer{text-align:center;font-size:11.5px;color:#9c7a5c;padding:20px;}
-.note-box{background:#fff7e0;border-left:3px solid #e0a63a;border-radius:10px;padding:10px 14px;font-size:12.5px;color:#6b5233;margin-bottom:18px;}
-</style></head>
+  :root {
+    --c-day1: #d97757; --c-day2: #4a90a4; --c-day3: #7a8a5c;
+    --ink: #2b2b2b; --sub: #6b6b6b; --bg: #faf8f5; --card: #ffffff;
+    --line: #e6e0d8; --warn-bg: #fdf1ec; --warn-line: #e0a98a;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: -apple-system, "Noto Sans TC", "PingFang TC", sans-serif; background: var(--bg); color: var(--ink); line-height:1.6; padding-bottom:60px;}
+  header.top { padding: 20px 16px 12px; text-align:center; }
+  header.top h1 { font-size:1.3rem; margin:0 0 4px; }
+  header.top p { margin:0; color: var(--sub); font-size:0.85rem; }
+  #sync-banner { margin: 8px 16px; padding:10px 14px; border-radius:10px; font-size:0.82rem; text-align:center; }
+  #sync-banner.ok { background:#eaf6ec; color:#2f6b3a; border:1px solid #bfe3c4; }
+  #sync-banner.off { background:#fff4e5; color:#8a5a12; border:1px solid #f0cf9a; }
+  nav.day-tabs { display:flex; gap:8px; padding: 8px 16px; overflow-x:auto; }
+  nav.day-tabs button { flex:1; padding:10px 8px; border-radius:10px; border:1px solid var(--line); background:#fff; font-size:0.85rem; cursor:pointer; white-space:nowrap; }
+  nav.day-tabs button.active { color:#fff; border-color:transparent; }
+  nav.day-tabs button.active[data-day="day1"] { background: var(--c-day1); }
+  nav.day-tabs button.active[data-day="day2"] { background: var(--c-day2); }
+  nav.day-tabs button.active[data-day="day3"] { background: var(--c-day3); }
+  main { max-width:640px; margin:0 auto; padding: 4px 16px 40px; }
+  .day-title { font-size:1.15rem; font-weight:700; margin: 10px 0 4px; }
+  .day-intro { font-size:0.88rem; color:var(--sub); margin-bottom:10px; }
+  .warn-box { background:var(--warn-bg); border:1px solid var(--warn-line); border-radius:10px; padding:10px 12px; font-size:0.82rem; margin-bottom:14px; }
+  h2.section-h { font-size:0.95rem; margin:22px 0 8px; padding-top:10px; border-top:1px dashed var(--line); }
+  ul.card-list { list-style:none; margin:0; padding:0; min-height: 30px; }
+  li.card, li.pool-card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:8px; display:flex; gap:8px; align-items:flex-start; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+  .drag-handle { cursor:grab; color:#b8b0a4; font-size:1rem; padding:4px 2px; touch-action:none; user-select:none; }
+  .card-body { flex:1; min-width:0; }
+  .card-top { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .time-badge { font-weight:700; font-size:0.85rem; padding:2px 8px; border-radius:6px; background:#f1ece3; color:#5b4636; cursor:text; }
+  .name-text { font-weight:600; font-size:0.92rem; cursor:text; }
+  .tier-badge { font-size:0.72rem; background:#eef2f5; color:#456; padding:2px 7px; border-radius:6px; white-space:nowrap; }
+  .desc-text { font-size:0.8rem; color:var(--sub); margin-top:4px; }
+  .maps-link { display:inline-block; margin-top:4px; font-size:0.78rem; color:#1a73e8; text-decoration:none; }
+  .delete-btn { background:none; border:none; color:#c33; font-size:1.1rem; cursor:pointer; padding:2px 4px; line-height:1; }
+  .sortable-ghost { opacity:0.4; }
+  .sortable-chosen .card-body { background: #fffef8; }
+  .add-row { margin: 10px 0 6px; }
+  .add-row button.add-toggle { width:100%; padding:10px; border-radius:10px; border:1px dashed #b8b0a4; background:#fff; color:#5b4636; font-size:0.85rem; cursor:pointer; }
+  .add-form { display:none; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px; margin-top:8px; gap:8px; flex-wrap:wrap; }
+  .add-form.open { display:flex; }
+  .add-form input { flex:1; min-width:100px; padding:8px 10px; border-radius:8px; border:1px solid var(--line); font-size:0.85rem; }
+  .add-form button.confirm { padding:8px 14px; border-radius:8px; border:none; background:#3a7d44; color:#fff; font-size:0.85rem; cursor:pointer; }
+  footer.note { text-align:center; color:var(--sub); font-size:0.75rem; margin-top:30px; padding: 0 16px;}
+</style>
+</head>
 <body>
-<div class="hero">
+
+<header class="top">
   <h1>青森・弘前・秋田 三日兩夜手冊</h1>
-  <p>2026.8.4 – 8.6 ｜ 兩人旅 ｜ 住宿：Blossom Hotel 弘前 ｜ 點📍可直接開 Google Maps</p>
-</div>
-<div class="wrap">
+  <p>2026.8.4 – 8.6　兩人旅　拖曳卡片可自由調整行程　點📍可直接開 Google Maps</p>
+</header>
 
-  <h1 class="section-title">🗓 三天兩夜行程</h1>
-  <div class="days">
-    <div class="day day1">
-      <div class="day-head">
-        <div class="d">Day 1 ・ 8/4（二）弘前 → 青森</div>
-        <div class="t">Day 1｜8/4（二）弘前蘋果派 → 青森睡魔祭</div>
-      </div>
-      <div class="day-body">
-        <div class="day-intro">上野08:43出發，經新青森轉車直達弘前，展開結合蘋果甜點與夏日祭典的第一天。上午在弘前公園周邊完成蘋果派三連發，傍晚前往青森，親眼見證睡魔祭大型ねぶた運行的震撼。</div>
-        
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">08:43</span><span class="tc-name">上野 → 新青森　Hayabusa 7號</span></div>
-      <div class="tc-desc">東北新幹線最速達列車，約2小時58分直達新青森。（已訂・8號車6番A/B）</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">12:20</span><span class="tc-name">新青森 → 弘前　普通654號</span></div>
-      <div class="tc-desc">奧羽本線普通列車，39分。沿途可見岩木山身影，是這趟旅程第一次望見津輕平野的風景。（已查證）</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">13:00</span><span class="tc-name">Blossom Hotel 弘前　寄放行李</span></div>
-      <div class="tc-desc">入住時間通常15:00，先寄放行李輕裝出發。</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">13:40</span><span class="tc-name">弘前市立觀光館</span></div>
-      <div class="tc-desc">免費入場，可在此領取官方《弘前アップルパイガイドマップ》——收錄約45家店，由觀光館職員實際試吃、以甜度／酸度／肉桂5階段評分。</div>
-      <a class="tc-maps" href="https://www.google.com/maps/search/?api=1&query=%E5%BC%98%E5%89%8D%E5%B8%82%E7%AB%8B%E8%A7%80%E5%85%89%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA2-1" target="_blank" rel="noopener">📍 Google Maps 導航</a>
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">14:00</span><span class="tc-name">🍎大正浪漫喫茶室（坐下來吃）</span></div>
-      <div class="tc-desc">藤田記念庭園內、大正10年洋館原貌的空間，6種蘋果派可選、能直接食比べ。「オークレール」無肉桂、「タムラファーム」偏酸香。不接受訂位，尖峰要排隊。　⭐食べログ3.59（478則）</div>
-      <a class="tc-maps" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%AD%A3%E6%B5%AA%E6%BC%AB%E5%96%AB%E8%8C%B6%E5%AE%A4%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E4%B8%8A%E7%99%BD%E9%8A%80%E7%94%BA8-1%20%E8%97%A4%E7%94%B0%E8%A8%98%E5%BF%B5%E5%BA%AD%E5%9C%92%E5%86%85" target="_blank" rel="noopener">📍 Google Maps 導航</a>
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">14:40</span><span class="tc-name">🍎ポポロ（外帶①）</span></div>
-      <div class="tc-desc">藤田記念庭園步行可達的小麵包店，招牌「弘前リンゴのカスタードコロネパイ」——蘋果醬封口的卡士達可頌。地元日常愛店，月・水公休。　⭐食べログ3.17（26則）</div>
-      <a class="tc-maps" href="https://www.google.com/maps/search/?api=1&query=%E3%83%9D%E3%83%9D%E3%83%AD%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8B%E7%99%BD%E9%8A%8017-11" target="_blank" rel="noopener">📍 Google Maps 導航</a>
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">15:10</span><span class="tc-name">弘前城本丸・追手門</span></div>
-      <div class="tc-desc">日本現存12座天守之一，四月櫻花最盛，八月是護城河邊綠意盎然的散步好時節。</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">15:55</span><span class="tc-name">🍎ラグノオアプリ（外帶②・弘前駅內）</span></div>
-      <div class="tc-desc">弘前駅ビル內的老牌菓子店，招牌「気になるリンゴ」是整顆蘋果做的蘋果派，也有「りんごスティック」，上車前直接買最順路。</div>
-      <a class="tc-maps" href="https://www.google.com/maps/search/?api=1&query=%E3%83%A9%E3%82%B0%E3%83%8E%E3%82%AA%E3%82%A2%E3%83%97%E3%83%AA%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E8%A1%A8%E7%94%BA2-11%20%E3%82%A2%E3%83%97%E3%83%AA%E3%83%BC%E3%82%BA1F" target="_blank" rel="noopener">📍 Google Maps 導航</a>
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">16:16</span><span class="tc-name">弘前 → 青森　普通列車</span></div>
-      <div class="tc-desc">約45分，抵達時正好是睡魔祭準備進場的時間。</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">17:05</span><span class="tc-name">青森站周邊晚餐</span></div>
-      <div class="tc-desc">祭典期間店家幾乎客滿，建議直接吃屋台或提早入店。</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">18:00</span><span class="tc-name">睡魔祭卡位</span></div>
-      <div class="tc-desc">沿新町通り、八甲通り等路線提前找位置，18:00前熱門位置就會被佔滿。</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">18:45</span><span class="tc-name">青森睡魔祭　大型ねぶた運行</span></div>
-      <div class="tc-desc">約20台大型睡魔燈籠山車在市中心遊行，搭配跳人（ハネト）的歡呼與囃子聲，是東北三大祭典之一。（已查證）</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">22:06</span><span class="tc-name">青森 → 弘前　はねと4號</span></div>
-      <div class="tc-desc">8/2–8/7限定運行的臨時列車，看完整場睡魔祭後仍能順利回弘前過夜。（已查證）</div>
-      
-    </div>
-        <div class="risk-box"><div class="rb-line">⚠️ 弘前公園往返靠巴士班距不穩，15:50建議留計程車備案，避免壓縮睡魔祭卡位時間。</div></div>
-      </div>
-    </div>
-    <div class="day day2">
-      <div class="day-head">
-        <div class="d">Day 2 ・ 8/5（三）秋田竿燈祭</div>
-        <div class="t">Day 2｜8/5（三）秋田・竿燈祭一日</div>
-      </div>
-      <div class="day-body">
-        <div class="day-intro">今天整天在秋田，主角是竿燈祭。選擇白天的妙技大會而非夜場，是為了確保能趕上當晚最後一班回弘前的列車——但白天場其實更能看清差手的真功夫。</div>
-        
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">09:40</span><span class="tc-name">弘前 → 秋田　特急つがる42號</span></div>
-      <div class="tc-desc">沿奧羽本線南下，經大鰐溫泉、大館，約2小時5分抵達秋田。（已訂・2號車1番A/B）</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">11:50</span><span class="tc-name">無限堂 秋田駅前店　稲庭うどん</span></div>
-      <div class="tc-desc">秋田駅徒歩4分，比内地鶏セット是人氣選擇。　⭐食べログ3.53</div>
-      <a class="tc-maps" href="https://www.google.com/maps/search/?api=1&query=%E7%A8%B2%E5%BA%AD%E3%81%86%E3%81%A9%E3%82%93%20%E7%84%A1%E9%99%90%E5%A0%82%20%E7%A7%8B%E7%94%B0%E9%A7%85%E5%89%8D%E5%BA%97%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A2%E4%B8%81%E7%9B%AE4-12" target="_blank" rel="noopener">📍 Google Maps 導航</a>
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">13:00</span><span class="tc-name">秋田站 → エリアなかいち</span></div>
-      <div class="tc-desc">徒步約10分，竿燈祭期間人潮眾多，建議提早出發。</div>
-      <a class="tc-maps" href="https://www.google.com/maps/search/?api=1&query=%E3%82%A8%E3%83%AA%E3%82%A2%E3%81%AA%E3%81%8B%E3%81%84%E3%81%A1%20%E3%81%AB%E3%81%8E%E3%82%8F%E3%81%84%E5%BA%83%E5%A0%B4%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A1-4-1" target="_blank" rel="noopener">📍 Google Maps 導航</a>
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">13:15</span><span class="tc-name">晝竿燈 妙技大會</span></div>
-      <div class="tc-desc">差手在額頭、肩膀、腰間輪流支撐竿燈的技巧展示，白天場地開闊、視野清楚，適合近距離觀察技巧細節，且免費觀覽。9:00–15:40（已查證）</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">15:45</span><span class="tc-name">秋田市民俗芸能伝承館（ねぶり流し館）</span></div>
-      <div class="tc-desc">展示實體竿燈，可免費租借法被・鉢巻拍照。</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">16:35</span><span class="tc-name">千秋公園・久保田城御隅櫓</span></div>
-      <div class="tc-desc">御隅櫓9:00–16:30，公園本身24小時開放。</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">17:20</span><span class="tc-name">秋田站大樓內晚餐</span></div>
-      <div class="tc-desc">祭典期間川反一帶店家較難臨時入席，站內美食街（トピコ／アルヴェ）反而更有效率。</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">18:30</span><span class="tc-name">竿燈大通り看點燈入場</span></div>
-      <div class="tc-desc">夜本番19:15才開始演技，這裡只能看到18:50的入場點燈，適合當作意猶未盡的紀念而非主秀，限30分・可砍。</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">19:23</span><span class="tc-name">秋田 → 弘前　快速3627號</span></div>
-      <div class="tc-desc">2小時15分，是當日回弘前的最後一班車，錯過即需計程車或住宿秋田。</div>
-      
-    </div>
-        <div class="risk-box"><div class="rb-line">⚠️ 19:23是當天最後一班回弘前的車，錯過就回不去。夜竿燈只能看約10分鐘，建議直接砍掉換一頓從容的晚餐。</div><div class="rb-line">🔴 秋田犬ふれあい処與秋田犬ステーション皆因改裝移轉休業至2026年9月，已查證，未排入行程。</div></div>
-      </div>
-    </div>
-    <div class="day day3">
-      <div class="day-head">
-        <div class="d">Day 3 ・ 8/6（四）青森 → 東京</div>
-        <div class="t">Day 3｜8/6（四）青森市區 → 返程</div>
-      </div>
-      <div class="day-body">
-        <div class="day-intro">最後一天以青森市區為主：上午參觀睡魔常設展與寧靜的善知鳥神社，中午在海坊厨享用洋食午餐，下午探訪繩文遺跡三內丸山，傍晚從新青森搭新幹線返回東京。</div>
-        
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">07:30</span><span class="tc-name">飯店退房</span></div>
-      <div class="tc-desc">結束兩晚的弘前住宿。</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">08:04</span><span class="tc-name">弘前 → 新青森　普通列車</span></div>
-      <div class="tc-desc">約40分鐘，這天的第一段車程。</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">08:45</span><span class="tc-name">新青森站寄放行李</span></div>
-      <div class="tc-desc">祭典期間置物櫃常滿，建議一早先處理，避免耽誤後續行程。（關鍵動作）</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">09:20</span><span class="tc-name">ねぶたの家 ワ・ラッセ</span></div>
-      <div class="tc-desc">8月營業9:00–19:00（最後入館18:30），館內展示實體大型睡魔，也有跳人・囃子體驗時段。（已查證）</div>
-      <a class="tc-maps" href="https://www.google.com/maps/search/?api=1&query=%E3%81%AD%E3%81%B6%E3%81%9F%E3%81%AE%E5%AE%B6%20%E3%83%AF%E3%83%BB%E3%83%A9%E3%83%83%E3%82%BB%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%AE%89%E6%96%B91-1-1" target="_blank" rel="noopener">📍 Google Maps 導航</a>
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">10:45</span><span class="tc-name">善知鳥神社</span></div>
-      <div class="tc-desc">青森市總鎮守、青森發祥之地。境內安靜，觀光客少，是在地人日常參拜的神社。</div>
-      <a class="tc-maps" href="https://www.google.com/maps/search/?api=1&query=%E5%96%84%E7%9F%A5%E9%B3%A5%E7%A5%9E%E7%A4%BE%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%AE%89%E6%96%B92-7-18" target="_blank" rel="noopener">📍 Google Maps 導航</a>
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">11:25</span><span class="tc-name">A-FACTORY／八甲田丸（擇一）</span></div>
-      <div class="tc-desc">蘋果氣泡酒工房＋伴手禮，就在青森駅旁；或選對面的青函連絡船八甲田丸，登船看實體船艙。</div>
-      <a class="tc-maps" href="https://www.google.com/maps/search/?api=1&query=A-FACTORY%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E6%9F%B3%E5%B7%9D1-4-2" target="_blank" rel="noopener">📍 Google Maps 導航</a>
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">12:30</span><span class="tc-name">海坊厨　午間洋食</span></div>
-      <div class="tc-desc">青森駅徒步6分，午間為洋食、晚間變身海鮮創作料理。建議事先電話訂位。　⭐食べログ3.53</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">14:00</span><span class="tc-name">巴士 → 三內丸山遺跡</span></div>
-      <div class="tc-desc">由青森站搭乘市營巴士或ねぶたん号前往，車程約30–35分。</div>
-      
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">14:35</span><span class="tc-name">三內丸山遺跡</span></div>
-      <div class="tc-desc">世界遺產「北海道・北東北の縄文遺跡群」之一，開館時間與門票建議出發前再確認。</div>
-      <a class="tc-maps" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E5%86%85%E4%B8%B8%E5%B1%B1%E9%81%BA%E8%B7%A1%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E4%B8%89%E5%86%85%E4%B8%B8%E5%B1%B1305" target="_blank" rel="noopener">📍 Google Maps 導航</a>
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">16:15</span><span class="tc-name">あおもり旬味館</span></div>
-      <div class="tc-desc">新青森駅內伴手禮商場，蘋果製品・帆立・南部煎餅一次買齊，不必再回市區。同時取回寄放的行李。</div>
-      <a class="tc-maps" href="https://www.google.com/maps/search/?api=1&query=%E3%81%82%E3%81%8A%E3%82%82%E3%82%8A%E6%97%AC%E5%91%B3%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%A4%A7%E5%AD%97%E7%9F%B3%E6%B1%9F%E5%AD%97%E9%AB%98%E9%96%93" target="_blank" rel="noopener">📍 Google Maps 導航</a>
-    </div>
-    <div class="time-card">
-      <div class="tc-head"><span class="tc-time">17:44</span><span class="tc-name">新青森 → 上野　Hayabusa 38號</span></div>
-      <div class="tc-desc">東北新幹線最速達列車，約2小時58分直達上野，為這趟旅程畫下句點。（已訂・6號車14番D）</div>
-      
-    </div>
-        <div class="risk-box"><div class="rb-line">⚠️ 新青森置物櫃祭典期間可能已滿，08:45一早務必先搶。三內丸山巴士班次需出發前確認。</div></div>
-      </div>
-    </div></div>
+<div id="sync-banner"></div>
 
-  <h1 class="section-title">🍎 特集：弘前蘋果派　一坐二帶三站制霸</h1>
-  <div class="note-box">所有店家經食べログ真實評分交叉查證，點名片可直接導航。</div>
-  <div class="card-grid">
-    <div class="card">
-      <div class="card-top"><div class="name">大正浪漫喫茶室（坐下來吃）</div><div class="ja">大正浪漫喫茶室</div></div>
-      <div class="score">⭐ 食べログ 3.59（478則）</div><div class="note">藤田記念庭園內、大正10年洋館原貌的空間，6種蘋果派可選，能一次比較著吃。招牌「オークレール」不加肉桂、「タムラファーム」偏酸香。不接受訂位，尖峰時段要排隊。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%AD%A3%E6%B5%AA%E6%BC%AB%E5%96%AB%E8%8C%B6%E5%AE%A4%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E4%B8%8A%E7%99%BD%E9%8A%80%E7%94%BA8-1%20%E8%97%A4%E7%94%B0%E8%A8%98%E5%BF%B5%E5%BA%AD%E5%9C%92%E5%86%85" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">ポポロ（外帶①）</div><div class="ja">ポポロ</div></div>
-      <div class="score">⭐ 食べログ 3.17（26則）・Google 4.6</div><div class="note">藤田記念庭園步行可達的小麵包店，招牌是「弘前蘋果卡士達可頌派」（用蘋果醬封口的可頌麵包夾卡士達醬）。當地人日常愛店，每週一、三公休。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E3%83%9D%E3%83%9D%E3%83%AD%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8B%E7%99%BD%E9%8A%8017-11" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">ラグノオアプリ（外帶②・車站內）</div><div class="ja">ラグノオアプリ</div></div>
-      <div class="score">⭐ 食べログ 3.03・弘前知名度最高的伴手禮之一</div><div class="note">弘前車站內的老牌菓子店，招牌「気になるリンゴ」是用整顆蘋果做的蘋果派，也有蘋果條狀點心。上車前直接買最順路。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E3%83%A9%E3%82%B0%E3%83%8E%E3%82%AA%E3%82%A2%E3%83%97%E3%83%AA%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E8%A1%A8%E7%94%BA2-11%20%E3%82%A2%E3%83%97%E3%83%AA%E3%83%BC%E3%82%BA1F" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div></div>
-  <h3>備選名單</h3>
-  <div class="card-grid">
-    <div class="card">
-      <div class="card-top"><div class="name">Angélique（グランメルシー）</div></div>
-      <div class="score">⭐ 3.64</div><div class="note">弘前蘋果派代表店之一，但**8/4週二公休**，這趟去不了。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=Ang%C3%A9lique%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E9%87%8E%E7%94%B01-3-16" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">ル・ショコラ</div></div>
-      <div class="score">⭐ 3.55</div><div class="note">用杏桃醬提味，酸甜口感是特色。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E3%83%AB%E3%83%BB%E3%82%B7%E3%83%A7%E3%82%B3%E3%83%A9%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%BE%92%E7%94%BA17-1" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">Le Castle Factory</div></div>
-      <div class="score">⭐ 3.54</div><div class="note">飯店直營甜點店，使用富士蘋果製作。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=Le%20Castle%20Factory%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8A%E9%9E%98%E5%B8%AB%E7%94%BA24-1%20%E3%83%9B%E3%83%86%E3%83%AB%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B9%E3%83%AB1F" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">可否屋 葡瑠満</div></div>
-      <div class="score">⭐ 3.56</div><div class="note">肉桂粉最後才灑，整體甜度偏低。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%AF%E5%90%A6%E5%B1%8B%20%E8%91%A1%E7%91%A0%E6%BA%80%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA17-39" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">万茶ン</div></div>
-      <div class="score">⭐ 3.43</div><div class="note">太宰治也造訪過的東北最老喫茶店，很有懷舊氣氛。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%87%E8%8C%B6%E3%83%B3%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%9C%9F%E6%89%8B%E7%94%BA36-6" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div></div>
+<nav class="day-tabs" id="day-tabs"></nav>
 
-  <h1 class="section-title">🍽 三城美食帖（主推＋備選）</h1>
-  <h2>🍽 弘前美食帖</h2>
-<h3>主推5家</h3><div class="card-grid">
-    <div class="card">
-      <div class="card-top"><div class="name">たかはし中華そば店</div></div>
-      <div class="score">⭐ 3.69</div><div class="note">小魚乾湯底拉麵名店，離市區稍遠，但被在地人稱為「聖地」。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E3%81%9F%E3%81%8B%E3%81%AF%E3%81%97%E4%B8%AD%E8%8F%AF%E3%81%9D%E3%81%B0%E5%BA%97%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E6%92%AB%E7%89%9B%E5%AD%901-3-6" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">三忠食堂 本店</div></div>
-      <div class="score">⭐ 3.45</div><div class="note">津輕蕎麥麵元祖老店，蕎麥粉混黃豆粉、以烤乾魚熬湯頭。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E5%BF%A0%E9%A3%9F%E5%A0%82%20%E6%9C%AC%E5%BA%97%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E5%92%8C%E5%BE%B3%E7%94%BA164" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">そば処 こぎん</div></div>
-      <div class="score">⭐ 3.29</div><div class="note">弘前車站直通，人稱「夢幻津輕蕎麥麵」。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E3%81%9D%E3%81%B0%E5%87%A6%20%E3%81%93%E3%81%8E%E3%82%93%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E8%A1%A8%E7%94%BA2-11%20%E3%82%A2%E3%83%97%E3%83%AA%E3%83%BC%E3%82%BA1F" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">土紋</div></div>
-      <div class="score">⭐ 3.60</div><div class="note">鄉土料理居酒屋，招牌是烏賊肉餅（いがめんち），適合當晚餐。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%9C%9F%E7%B4%8B%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E4%BB%A3%E5%AE%98%E7%94%BA99" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">創作郷土料理の店 菊富士 本店</div></div>
-      <div class="score">⭐ 3.46</div><div class="note">扇貝味噌燒＋烏賊肉餅定食，一次吃到兩樣招牌。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%89%B5%E4%BD%9C%E9%83%B7%E5%9C%9F%E6%96%99%E7%90%86%E3%81%AE%E5%BA%97%20%E8%8F%8A%E5%AF%8C%E5%A3%AB%20%E6%9C%AC%E5%BA%97%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E5%9D%82%E6%9C%AC%E7%94%BA1" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div></div>
-<h3>備選10家</h3><div class="card-grid">
-    <div class="card">
-      <div class="card-top"><div class="name">あば</div></div>
-      <div class="score">⭐ 3.29（61則）</div><div class="note">東栄飯店1樓的鄉土料理店，津輕海峽鮮魚直接跟漁行採購，生魚片和海鮮創作料理是強項，全店約24席，中央弘前站徒步6分。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E3%81%82%E3%81%B0%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%9C%9F%E6%89%8B%E7%94%BA166%20%E6%9D%B1%E6%A0%84%E3%83%9B%E3%83%86%E3%83%AB1F" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">四季亭</div></div>
-      <div class="score">⭐ 3.25</div><div class="note">在地評價很高的海鮮居酒屋，以新鮮生魚片聞名，招牌是烏賊肉餅牛排配奶油紫蘇醬，日本酒選項豐富（田酒、豐盃等青森地酒都有），中央弘前站徒步5–7分。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%9B%9B%E5%AD%A3%E4%BA%AD%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E8%A6%AA%E6%96%B9%E7%94%BA43" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">津軽の酒処 わたみ</div></div>
-      <div class="score">⭐ 3.46（弘前駅徒歩3分）</div><div class="note">弘前車站旁的居酒屋，雖是全國連鎖但主打在地食材，招牌是烏賊肉餅、嶽きみ（岩木山麓高甜度玉米），地酒品項超過150種。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E6%B4%A5%E8%BB%BD%E3%81%AE%E9%85%92%E5%87%A6%20%E3%82%8F%E3%81%9F%E3%81%BF%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E9%A7%85%E5%89%8D%E7%94%BA6-3" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">津軽衆</div></div>
-      <div class="score">⭐ 3.45</div><div class="note">弘前車站徒步4分的居酒屋，招牌是100円起的扇貝味噌燒、烏賊肉餅、串炸，走親民路線。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E6%B4%A5%E8%BB%BD%E8%A1%86%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E7%94%BA1-6-2" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">松ノ木</div></div>
-      <div class="score">⭐ 3.38（駅前）</div><div class="note">弘前車站徒步5分的和食創作料理店，午間定食做得細緻，推薦銀鱈套餐，午餐約999円起。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%BE%E3%83%8E%E6%9C%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E9%A7%85%E5%89%8D%E7%94%BA13-1" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">佐和家</div></div>
-      <div class="score">⭐ 3.09</div><div class="note">弘前公園附近的和食餐廳，創業30多年，推薦鄉土定食「つがる路定食」，全年無休，也接會席料理宴席。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E4%BD%90%E5%92%8C%E5%AE%B6%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E6%9C%AC%E7%94%BA91" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">PIZZERIA MIA</div></div>
-      <div class="score">⭐ 食べログ3.19・Google 4.3</div><div class="note">主廚曾在米其林三星餐廳歷練過，用北海道自製莫札瑞拉起司、蘋果木窯烤披薩，義式冰淇淋現做，是弘前少見的道地窯烤披薩店。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=PIZZERIA%20MIA%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E4%BB%A3%E5%AE%98%E7%94%BA" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">ふじや</div></div>
-      <div class="score">⭐ 3.33（57則）</div><div class="note">土手町商場2樓的日式料理店「わ食処ふじや」，以新鮮生魚片和在地酒聞名，週日公休。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E3%81%B5%E3%81%98%E3%82%84%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%9C%9F%E6%89%8B%E7%94%BA36-6%20%E3%83%97%E3%83%A9%E3%82%B6%E3%82%B7%E3%83%A3%E3%83%AB%E3%83%9E%E3%83%B32F" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">津軽旨米屋</div></div>
-      <div class="score">⭐ 3.31</div><div class="note">位在津輕藩睡魔村園區內，是認證的「津輕料理遺產傳承店」，招牌是用200公斤石窯跟三升炊鐵鍋煮的白飯，配貝燒味噌、けの汁、扇貝可樂餅咖哩等定食，能同時逛展覽。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E6%B4%A5%E8%BB%BD%E6%97%A8%E7%B1%B3%E5%B1%8B%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%BA%80%E7%94%B2%E7%94%BA61%20%E6%B4%A5%E8%BB%BD%E8%97%A9%E3%81%AD%E3%81%B7%E3%81%9F%E6%9D%91" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div></div>
-<h3>咖啡・甜點</h3><div class="card-grid">
-    <div class="card">
-      <div class="card-top"><div class="name">弘前市民会館の喫茶室</div></div>
-      <div class="score">⭐ 食べログまとめ精選店</div><div class="note">弘前公園內、建築師前川國男操刀的昭和摩登建築，店內常備20多種生豆自家烘焙，招牌是厚實鬆軟的鬆餅。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%BC%98%E5%89%8D%E5%B8%82%E6%B0%91%E4%BC%9A%E9%A4%A8%E3%81%AE%E5%96%AB%E8%8C%B6%E5%AE%A4%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA1-6%20%E5%BC%98%E5%89%8D%E5%B8%82%E6%B0%91%E4%BC%9A%E9%A4%A8%E5%86%85" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">万茶ン</div></div>
-      <div class="score">⭐ 3.43</div><div class="note">太宰治也造訪過的東北最老喫茶店，很有懷舊氣氛。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%87%E8%8C%B6%E3%83%B3%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%9C%9F%E6%89%8B%E7%94%BA36-6" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">可否屋 葡瑠満</div></div>
-      <div class="score">⭐ 3.56</div><div class="note">肉桂粉最後才灑，整體甜度偏低的蘋果派名店。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%AF%E5%90%A6%E5%B1%8B%20%E8%91%A1%E7%91%A0%E6%BA%80%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA17-39" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div></div><h2>🍽 秋田美食帖</h2>
-<h3>主推5家</h3><div class="card-grid">
-    <div class="card">
-      <div class="card-top"><div class="name">佐藤養助 秋田店</div></div>
-      <div class="score">⭐ 3.51（1199則）</div><div class="note">創業150年，稻庭烏龍麵的代表老店，秋田車站徒步3分。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E4%BD%90%E8%97%A4%E9%A4%8A%E5%8A%A9%20%E7%A7%8B%E7%94%B0%E5%BA%97%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A2-6-1%20%E8%A5%BF%E6%AD%A6%E7%A7%8B%E7%94%B0%E5%BA%97B1F" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">稲庭うどん 無限堂 秋田駅前店</div></div>
-      <div class="score">⭐ 3.53</div><div class="note">秋田車站徒步4分，招牌比內地雞套餐很受歡迎。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E7%A8%B2%E5%BA%AD%E3%81%86%E3%81%A9%E3%82%93%20%E7%84%A1%E9%99%90%E5%A0%82%20%E7%A7%8B%E7%94%B0%E9%A7%85%E5%89%8D%E5%BA%97%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A2%E4%B8%81%E7%9B%AE4-12" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">寛文五年堂 秋田店</div></div>
-      <div class="score">⭐ 3.60</div><div class="note">就在晝竿燈會場旁，吃完飯直接去卡位最順。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%AF%9B%E6%96%87%E4%BA%94%E5%B9%B4%E5%A0%82%20%E7%A7%8B%E7%94%B0%E5%BA%97%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A1-4-3%20%E3%82%A8%E3%83%AA%E3%82%A2%E3%81%AA%E3%81%8B%E3%81%84%E3%81%A11F" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">とっぴんぱらりのぷ</div></div>
-      <div class="score">⭐ 3.62</div><div class="note">居酒屋百大名店之一，招牌是米棒鍋與圍爐炭火燒烤，適合當晚餐。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E3%81%A8%E3%81%A3%E3%81%B4%E3%82%93%E3%81%B1%E3%82%89%E3%82%8A%E3%81%AE%E3%81%B7%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%8D%83%E7%A7%8B%E4%B9%85%E4%BF%9D%E7%94%B0%E7%94%BA4-5%20%E7%A7%8B%E7%94%B0%E9%A7%85%E5%89%8D%E3%83%93%E3%83%AB5F" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">秋田長屋酒場</div></div>
-      <div class="score">⭐ 3.51</div><div class="note">以觀光客為主的鄉土料理店，還有生剝鬼（なまはげ）表演可看。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E9%95%B7%E5%B1%8B%E9%85%92%E5%A0%B4%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A4-16-17" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div></div>
-<h3>備選7家</h3><div class="card-grid">
-    <div class="card">
-      <div class="card-top"><div class="name">喰処 北洲</div></div>
-      <div class="score">⭐ 3.59</div><div class="note">位在大町、秋田車站徒步14分的老字號米棒鍋專門店，晚餐限定，坐榻榻米座位邊看河景邊吃，米棒烤過表皮有焦香、湯頭濃郁。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%96%B0%E5%87%A6%20%E5%8C%97%E6%B4%B2%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%A4%A7%E7%94%BA4-1-11" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">秋田きりたんぽ屋</div></div>
-      <div class="score">⭐ 3.47</div><div class="note">古民家風裝潢、擺滿民藝品的居酒屋，自製大份量米棒鍋、比內地雞湯，還有煙燻醃蘿蔔、野生蕨菜等秋田特色小菜，有包廂可以悠閒用餐。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E3%81%8D%E3%82%8A%E3%81%9F%E3%82%93%E3%81%BD%E5%B1%8B%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A2-7-6" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">酒季亭 比内や 秋田店</div></div>
-      <div class="score">⭐ 3.57</div><div class="note">創業40年的比內地雞專門店，秋田車站徒步15分，使用有產地證明、放養5–6個月的比內地雞，米棒鍋湯頭喝到最後都好喝，店內氣氛像老字號旅館。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E9%85%92%E5%AD%A3%E4%BA%AD%20%E6%AF%94%E5%86%85%E3%82%84%20%E7%A7%8B%E7%94%B0%E5%BA%97%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%A4%A7%E7%94%BA4-2-2" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">さけ富</div></div>
-      <div class="score">⭐ 3.74</div><div class="note">秋田おでん專門店，湯頭用白神山系湧泉、男鹿鹽和魚露熬煮，2025年入選「東日本居酒屋百名店」，適合配秋田地酒慢慢吃。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E3%81%95%E3%81%91%E5%AF%8C%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%A4%A7%E7%94%BA5-1-27" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">酒盃</div></div>
-      <div class="score">⭐ 4.12</div><div class="note">山王地區超過40年的老字號居酒屋，古民家氛圍配裸燈泡，主打無菜單料理（4000円起）配約50種秋田地酒，熱門到需提前一個月訂位。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E9%85%92%E7%9B%83%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%B1%B1%E7%8E%8B1-6-9" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">元祖 むらさき</div></div>
-      <div class="score">⭐ 3.72</div><div class="note">大館市超過70年的比內地雞老店，除了米棒鍋還有雞排、唐揚、鹽烤等多種吃法，位置離秋田市區較遠，適合時間充裕時排入。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%85%83%E7%A5%96%20%E3%82%80%E3%82%89%E3%81%95%E3%81%8D%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E5%A4%A7%E9%A4%A8%E5%B8%82%E5%B9%B8%E7%94%BA12-9" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">花善</div></div>
-      <div class="score">⭐ 3.48</div><div class="note">大館車站的知名鐵路便當「鶏めし弁当」，用祕傳高湯燉飯配甘辛雞肉，2015、2016連續拿下JR東日本「駅弁大將軍」，冷了也好吃，適合買了帶上車。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E8%8A%B1%E5%96%84%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E5%A4%A7%E9%A4%A8%E5%B8%82%E5%BE%A1%E6%88%90%E7%94%BA1-10-2" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div></div><h2>🍽 青森美食帖</h2>
-<h3>味噌カレー牛乳ラーメン</h3><div class="card-grid">
-    <div class="card">
-      <div class="card-top"><div class="name">味の札幌 大西（本命）</div></div>
-      <div class="score">⭐ 3.59（1369則）</div><div class="note">味噌咖哩牛奶拉麵人氣No.1，加奶油版約880円，青森車站徒步10分。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%91%B3%E3%81%AE%E6%9C%AD%E5%B9%8C%20%E5%A4%A7%E8%A5%BF%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%8F%A4%E5%B7%9D1%E4%B8%81%E7%9B%AE15-6" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">味の札幌 浅利</div></div>
-      <div class="score">⭐ 3.55</div><div class="note">青森車站徒步5分，吧檯座位8席，招牌是自製辣味噌拉麵。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%91%B3%E3%81%AE%E6%9C%AD%E5%B9%8C%20%E6%B5%85%E5%88%A9%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E6%96%B0%E7%94%BA1%E4%B8%81%E7%9B%AE11-23" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">札幌館</div></div>
-      <div class="score">⭐ 3.54</div><div class="note">新青森車站車程5分，也有販售可帶回家的伴手禮拉麵。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9C%AD%E5%B9%8C%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E7%9F%B3%E6%B1%9F%E5%B2%A1%E9%83%A856-3" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">かわら</div></div>
-      <div class="score">⭐ 3.43</div><div class="note">以生薑提味的版本，口味較清爽。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E3%81%8B%E3%82%8F%E3%82%89%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%A4%A7%E5%AD%97%E7%AD%92%E4%BA%95%E5%AD%97%E5%85%AB%E3%83%84%E6%A9%8B40-5" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div></div>
-<h3>市場・海鮮</h3><div class="card-grid">
-    <div class="card">
-      <div class="card-top"><div class="name">青森魚菜センター（古川市場）</div></div>
-      <div class="score">⭐ 在地市場・非食べログ評分</div><div class="note">先買券再自選食材，做成一碗專屬的海鮮蓋飯。青森車站徒步約7分，上午到中午人氣最旺。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E9%9D%92%E6%A3%AE%E9%AD%9A%E8%8F%9C%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%8F%A4%E5%B7%9D" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div></div>
-<h3>午餐・其他</h3><div class="card-grid">
-    <div class="card">
-      <div class="card-top"><div class="name">海坊厨（本命・已固定）</div></div>
-      <div class="score">⭐ 3.53</div><div class="note">午間供應洋食、晚間變身海鮮創作料理，青森車站徒步6分，建議事先電話訂位。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E6%B5%B7%E5%9D%8A%E5%8E%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%8F%A4%E5%B7%9D1-13-12" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">True</div></div>
-      <div class="score">⭐ Google 4.7</div><div class="note">日式咖哩專賣店，在地評價很高。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=True%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">茶房CoCo</div></div>
-      <div class="score">⭐ Google 4.1</div><div class="note">氣氛沉穩的老派咖啡廳。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E8%8C%B6%E6%88%BFCoCo%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div></div>
+<main>
+  <div class="day-title" id="day-title"></div>
+  <div class="day-intro" id="day-intro"></div>
+  <div class="warn-box" id="day-warn"></div>
 
-  <h1 class="section-title">🗺 景點清單</h1>
-  <h2>🗺 弘前景點清單</h2>
-<h3></h3><div class="card-grid">
-    <div class="card">
-      <div class="card-top"><div class="name">弘前市立觀光館</div></div>
-      <div class="note">免費領取官方《弘前蘋果派導覽地圖》（收錄約45家店，由觀光館職員實際試吃評分）。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%BC%98%E5%89%8D%E5%B8%82%E7%AB%8B%E8%A7%80%E5%85%89%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA2-1" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">藤田記念庭園</div></div>
-      <div class="note">開放時間9:00–17:00，門票320円，大正浪漫喫茶室就在園內。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E8%97%A4%E7%94%B0%E8%A8%98%E5%BF%B5%E5%BA%AD%E5%9C%92%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E4%B8%8A%E7%99%BD%E9%8A%80%E7%94%BA8-1" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">弘前城（弘前公園）</div></div>
-      <div class="note">本丸開放9:00–17:00，門票320円，公園本身24小時開放。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%BC%98%E5%89%8D%E5%9F%8E%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA1" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">弘前れんが倉庫美術館</div></div>
-      <div class="note">雨天備案，館內加咖啡廳可以待上90分鐘。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%BC%98%E5%89%8D%E3%82%8C%E3%82%93%E3%81%8C%E5%80%89%E5%BA%AB%E7%BE%8E%E8%A1%93%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%90%89%E9%87%8E%E7%94%BA2-1" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div></div><h2>🗺 秋田景點清單</h2>
-<h3></h3><div class="card-grid">
-    <div class="card">
-      <div class="card-top"><div class="name">エリアなかいち にぎわい広場</div></div>
-      <div class="note">晝竿燈妙技大會的會場，秋田車站徒步約10分。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E3%82%A8%E3%83%AA%E3%82%A2%E3%81%AA%E3%81%8B%E3%81%84%E3%81%A1%20%E3%81%AB%E3%81%8E%E3%82%8F%E3%81%84%E5%BA%83%E5%A0%B4%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A1-4-1" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">秋田市民俗芸能伝承館（ねぶり流し館）</div></div>
-      <div class="note">展示實體竿燈，可免費租借傳統法被外掛和頭巾拍照。開放時間需自行確認。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E5%B8%82%E6%B0%91%E4%BF%97%E8%8A%B8%E8%83%BD%E4%BC%9D%E6%89%BF%E9%A4%A8%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%A4%A7%E7%94%BA1-3-30" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">千秋公園（久保田城）</div></div>
-      <div class="note">御隅櫓開放9:00–16:30，公園本身24小時開放。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%8D%83%E7%A7%8B%E5%85%AC%E5%9C%92%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%8D%83%E7%A7%8B%E5%85%AC%E5%9C%921-39" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">秋田県立美術館</div></div>
-      <div class="note">雨天備案，館內有藤田嗣治巨幅壁畫《秋田的行事》，就在なかいち商業區旁。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%AB%8B%E7%BE%8E%E8%A1%93%E9%A4%A8%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A1-4-2" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">赤れんが郷土館</div></div>
-      <div class="note">雨天備案，舊秋田銀行本店建築，是日本重要文化財。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E8%B5%A4%E3%82%8C%E3%82%93%E3%81%8C%E9%83%B7%E5%9C%9F%E9%A4%A8%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%A4%A7%E7%94%BA3-3-21" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div></div><h2>🗺 青森景點清單</h2>
-<h3></h3><div class="card-grid">
-    <div class="card">
-      <div class="card-top"><div class="name">ねぶたの家 ワ・ラッセ</div></div>
-      <div class="note">8月營業時間9:00–19:00（最後入館18:30），館內有實體大型睡魔展示。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E3%81%AD%E3%81%B6%E3%81%9F%E3%81%AE%E5%AE%B6%20%E3%83%AF%E3%83%BB%E3%83%A9%E3%83%83%E3%82%BB%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%AE%89%E6%96%B91-1-1" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">善知鳥神社</div></div>
-      <div class="note">青森市總鎮守、青森發祥之地，境內安靜，觀光客不多。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E5%96%84%E7%9F%A5%E9%B3%A5%E7%A5%9E%E7%A4%BE%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%AE%89%E6%96%B92-7-18" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">A-FACTORY</div></div>
-      <div class="note">蘋果氣泡酒工坊加伴手禮商場，就在青森車站旁。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=A-FACTORY%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E6%9F%B3%E5%B7%9D1-4-2" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">青函連絡船 八甲田丸</div></div>
-      <div class="note">退役船艦改建的實物博物館，就在A-FACTORY對面。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E9%9D%92%E5%87%BD%E9%80%A3%E7%B5%A1%E8%88%B9%20%E5%85%AB%E7%94%B2%E7%94%B0%E4%B8%B8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E6%9F%B3%E5%B7%9D1-112-15" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">三内丸山遺跡</div></div>
-      <div class="note">世界遺產「北海道・北東北繩文遺跡群」之一，開館時間需自行確認。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E5%86%85%E4%B8%B8%E5%B1%B1%E9%81%BA%E8%B7%A1%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E4%B8%89%E5%86%85%E4%B8%B8%E5%B1%B1305" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">青森県立美術館</div></div>
-      <div class="note">雨天備案，可看奈良美智作品《青森犬》與夏卡爾三聯畫，和三內丸山同一巴士站。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E9%9D%92%E6%A3%AE%E7%9C%8C%E7%AB%8B%E7%BE%8E%E8%A1%93%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%AE%89%E7%94%B0%E5%AD%97%E8%BF%91%E9%87%8E185" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="name">あおもり旬味館</div></div>
-      <div class="note">新青森車站內的伴手禮商場。</div>
-      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=%E3%81%82%E3%81%8A%E3%82%82%E3%82%8A%E6%97%AC%E5%91%B3%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%A4%A7%E5%AD%97%E7%9F%B3%E6%B1%9F%E5%AD%97%E9%AB%98%E9%96%93" target="_blank" rel="noopener">📍 在 Google Maps 開啟</a>
-    </div></div>
+  <h2 class="section-h">🗓 行程表（可拖曳排序）</h2>
+  <ul class="card-list" id="itinerary-list"></ul>
 
-</div>
-<footer>資料來源：食べログ各分區排行榜／食べログまとめ／JR東日本時刻表／弘前市觀光協會／青森ねぶた祭・秋田竿燈まつり官方網站</footer>
-</body></html>
+  <div class="add-row">
+    <button class="add-toggle" id="add-toggle">＋ 新增一筆行程</button>
+    <div class="add-form" id="add-form">
+      <input type="text" id="add-time" placeholder="時間 例如 15:30">
+      <input type="text" id="add-name" placeholder="店名／地點">
+      <button class="confirm" id="add-confirm">新增</button>
+    </div>
+  </div>
+
+  <h2 class="section-h" id="pool-title">🍽 美食＆景點候選（拖曳到上面行程表）</h2>
+  <ul class="card-list" id="pool-list"></ul>
+</main>
+
+<footer class="note">資料來源：食べログ各分區排行榜／食べログまとめ／JR東日本時刻表／弘前市觀光協會／青森ねぶた祭・秋田竿燈まつり官方網站<br>拖曳排序會即時同步給旅伴（需完成雲端連接設定）</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+<script>
+const PAYLOAD = {"dayMeta": {"day1": {"label": "Day 1 ・ 8/4（二）弘前 → 青森", "title": "Day 1｜8/4（二）弘前蘋果派 → 青森睡魔祭", "intro": "上野08:43出發，經新青森轉車直達弘前，展開結合蘋果甜點與夏日祭典的第一天。上午在弘前公園周邊完成蘋果派三連發，傍晚前往青森，親眼見證睡魔祭大型ねぶた運行的震撼。", "warning": "弘前公園往返靠巴士班距不穩，15:50建議留計程車備案，避免壓縮睡魔祭卡位時間。"}, "day2": {"label": "Day 2 ・ 8/5（三）秋田竿燈祭", "title": "Day 2｜8/5（三）秋田・竿燈祭一日", "intro": "今天整天在秋田，主角是竿燈祭。選擇白天的妙技大會而非夜場，是為了確保能趕上當晚最後一班回弘前的列車——但白天場其實更能看清差手的真功夫。", "warning": "19:23是當天最後一班回弘前的車，錯過就回不去。夜竿燈只能看約10分鐘，建議直接砍掉換一頓從容的晚餐。（另：秋田犬ふれあい処與秋田犬ステーション皆因改裝移轉休業至2026年9月，已查證，未排入行程。）"}, "day3": {"label": "Day 3 ・ 8/6（四）青森 → 東京", "title": "Day 3｜8/6（四）青森市區 → 返程", "intro": "最後一天以青森市區為主：上午參觀睡魔常設展與寧靜的善知鳥神社，中午在海坊厨享用洋食午餐，下午探訪繩文遺跡三內丸山，傍晚從新青森搭新幹線返回東京。", "warning": "新青森置物櫃祭典期間可能已滿，08:45一早務必先搶。三內丸山巴士班次需出發前確認。"}}, "dayOrder": ["day1", "day2", "day3"], "itinerary": {"day1": [{"id": "day1-0", "time": "08:43", "name": "上野 → 新青森 Hayabusa 7號", "desc": "東北新幹線最速達列車，約2小時58分直達新青森。（已訂・8號車6番A/B）", "maps": null, "custom": false}, {"id": "day1-1", "time": "12:20", "name": "新青森 → 弘前 普通654號", "desc": "奧羽本線普通列車，39分。沿途可見岩木山身影，是這趟旅程第一次望見津輕平野的風景。（已查證）", "maps": null, "custom": false}, {"id": "day1-2", "time": "13:00", "name": "Blossom Hotel 弘前 寄放行李", "desc": "入住時間通常15:00，先寄放行李輕裝出發。", "maps": null, "custom": false}, {"id": "day1-3", "time": "13:40", "name": "弘前市立觀光館", "desc": "免費入場，可在此領取官方《弘前アップルパイガイドマップ》——收錄約45家店，由觀光館職員實際試吃、以甜度／酸度／肉桂5階段評分。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%BC%98%E5%89%8D%E5%B8%82%E7%AB%8B%E8%A6%B3%E5%85%89%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA2-1", "custom": false}, {"id": "day1-4", "time": "14:00", "name": "🍎大正浪漫喫茶室（坐下來吃）", "desc": "藤田記念庭園內、大正10年洋館原貌的空間，6種蘋果派可選、能直接食比べ。「オークレール」無肉桂、「タムラファーム」偏酸香。不接受訂位，尖峰要排隊。 ⭐食べログ3.59（478則）", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%AD%A3%E6%B5%AA%E6%BC%AB%E5%96%AB%E8%8C%B6%E5%AE%A4%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8A%E7%99%BD%E9%8A%80%E7%94%BA8-1%20%E8%97%A4%E7%94%B0%E8%A8%98%E5%BF%B5%E5%BA%AD%E5%9C%92%E5%86%85", "custom": false}, {"id": "day1-5", "time": "14:40", "name": "🍎ポポロ（外帶①）", "desc": "藤田記念庭園步行可達的小麵包店，招牌「弘前リンゴのカスタードコロネパイ」——蘋果醬封口的卡士達可頌。地元日常愛店，月・水公休。 ⭐食べログ3.17（26則）", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%83%9D%E3%83%9D%E3%83%AD%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA17-11", "custom": false}, {"id": "day1-6", "time": "15:10", "name": "弘前城本丸・追手門", "desc": "日本現存12座天守之一，四月櫻花最盛，八月是護城河邊綠意盎然的散步好時節。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%BC%98%E5%89%8D%E5%9F%8E%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA1", "custom": false}, {"id": "day1-7", "time": "15:55", "name": "🍎ラグノオアプリ（外帶②・弘前駅內）", "desc": "弘前駅ビル內的老牌菓子店，招牌「気になるリンゴ」是整顆蘋果做的蘋果派，也有「りんごスティック」，上車前直接買最順路。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%83%A9%E3%82%B0%E3%83%8E%E3%82%AA%E3%82%A2%E3%83%97%E3%83%AA%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E8%A1%A8%E7%94%BA2-11%20%E3%82%A2%E3%83%97%E3%83%AA%E3%83%BC%E3%82%BA1F", "custom": false}, {"id": "day1-8", "time": "16:16", "name": "弘前 → 青森 普通列車", "desc": "約45分，抵達時正好是睡魔祭準備進場的時間。", "maps": null, "custom": false}, {"id": "day1-9", "time": "17:05", "name": "青森站周邊晚餐", "desc": "祭典期間店家幾乎客滿，建議直接吃屋台或提早入店。", "maps": null, "custom": false}, {"id": "day1-10", "time": "18:00", "name": "睡魔祭卡位", "desc": "沿新町通り、八甲通り等路線提前找位置，18:00前熱門位置就會被佔滿。", "maps": null, "custom": false}, {"id": "day1-11", "time": "18:45", "name": "青森睡魔祭 大型ねぶた運行", "desc": "約20台大型睡魔燈籠山車在市中心遊行，搭配跳人（ハネト）的歡呼與囃子聲，是東北三大祭典之一。（已查證）", "maps": null, "custom": false}, {"id": "day1-12", "time": "22:06", "name": "青森 → 弘前 はねと4號", "desc": "8/2–8/7限定運行的臨時列車，看完整場睡魔祭後仍能順利回弘前過夜。（已查證）", "maps": null, "custom": false}], "day2": [{"id": "day2-0", "time": "09:40", "name": "弘前 → 秋田 特急つがる42號", "desc": "沿奧羽本線南下，經大鰐溫泉、大館，約2小時5分抵達秋田。（已訂・2號車1番A/B）", "maps": null, "custom": false}, {"id": "day2-1", "time": "11:50", "name": "無限堂 秋田駅前店 稲庭うどん", "desc": "秋田駅徒歩4分，比内地鶏セット是人氣選擇。 ⭐食べログ3.53", "maps": "https://www.google.com/maps/search/?api=1&query=%E7%A8%B2%E5%BA%AD%E3%81%86%E3%81%A9%E3%82%93%20%E7%84%A1%E9%99%90%E5%A0%82%20%E7%A7%8B%E7%94%B0%E9%A7%85%E5%89%8D%E5%BA%97%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A2%E4%B8%81%E7%9B%AE4-12", "custom": false}, {"id": "day2-2", "time": "13:00", "name": "秋田站 → エリアなかいち", "desc": "徒步約10分，竿燈祭期間人潮眾多，建議提早出發。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%82%A8%E3%83%AA%E3%82%A2%E3%81%AA%E3%81%8B%E3%81%84%E3%81%A1%20%E3%81%AB%E3%81%8E%E3%82%8F%E3%81%84%E5%BA%83%E5%A0%B4%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A1-4-1", "custom": false}, {"id": "day2-3", "time": "13:15", "name": "晝竿燈 妙技大會", "desc": "差手在額頭、肩膀、腰間輪流支撐竿燈的技巧展示，白天場地開闊、視野清楚，適合近距離觀察技巧細節，且免費觀覽。9:00–15:40（已查證）", "maps": null, "custom": false}, {"id": "day2-4", "time": "15:45", "name": "秋田市民俗芸能伝承館（ねぶり流し館）", "desc": "展示實體竿燈，可免費租借法被・鉢巻拍照。", "maps": "https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E5%B8%82%E6%B0%91%E4%BF%97%E8%8A%B8%E8%83%BD%E4%BC%9D%E6%89%BF%E9%A4%A8%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%A4%A7%E7%94%BA1-3-30", "custom": false}, {"id": "day2-5", "time": "16:35", "name": "千秋公園・久保田城御隅櫓", "desc": "御隅櫓9:00–16:30，公園本身24小時開放。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%8D%83%E7%A7%8B%E5%85%AC%E5%9C%92%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%8D%83%E7%A7%8B%E5%85%AC%E5%9C%921-39", "custom": false}, {"id": "day2-6", "time": "17:20", "name": "秋田站大樓內晚餐", "desc": "祭典期間川反一帶店家較難臨時入席，站內美食街（トピコ／アルヴェ）反而更有效率。", "maps": null, "custom": false}, {"id": "day2-7", "time": "18:30", "name": "竿燈大通り看點燈入場", "desc": "夜本番19:15才開始演技，這裡只能看到18:50的入場點燈，適合當作意猶未盡的紀念而非主秀，限30分・可砍。", "maps": null, "custom": false}, {"id": "day2-8", "time": "19:23", "name": "秋田 → 弘前 快速3627號", "desc": "2小時15分，是當日回弘前的最後一班車，錯過即需計程車或住宿秋田。", "maps": null, "custom": false}], "day3": [{"id": "day3-0", "time": "07:30", "name": "飯店退房", "desc": "結束兩晚的弘前住宿。", "maps": null, "custom": false}, {"id": "day3-1", "time": "08:04", "name": "弘前 → 新青森 普通列車", "desc": "約40分鐘，這天的第一段車程。", "maps": null, "custom": false}, {"id": "day3-2", "time": "08:45", "name": "新青森站寄放行李", "desc": "祭典期間置物櫃常滿，建議一早先處理，避免耽誤後續行程。（關鍵動作）", "maps": null, "custom": false}, {"id": "day3-3", "time": "09:20", "name": "ねぶたの家 ワ・ラッセ", "desc": "8月營業9:00–19:00（最後入館18:30），館內展示實體大型睡魔，也有跳人・囃子體驗時段。（已查證）", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%81%AD%E3%81%B6%E3%81%9F%E3%81%AE%E5%AE%B6%20%E3%83%AF%E3%83%BB%E3%83%A9%E3%83%83%E3%82%BB%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%AE%89%E6%96%B91-1-1", "custom": false}, {"id": "day3-4", "time": "10:45", "name": "善知鳥神社", "desc": "青森市總鎮守、青森發祥之地。境內安靜，觀光客少，是在地人日常參拜的神社。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%96%84%E7%9F%A5%E9%B3%A5%E7%A5%9E%E7%A4%BE%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%AE%89%E6%96%B92-7-18", "custom": false}, {"id": "day3-5", "time": "11:25", "name": "A-FACTORY／八甲田丸（擇一）", "desc": "蘋果氣泡酒工房＋伴手禮，就在青森駅旁；或選對面的青函連絡船八甲田丸，登船看實體船艙。", "maps": "https://www.google.com/maps/search/?api=1&query=A-FACTORY%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E6%9F%B3%E5%B7%9D1-4-2", "custom": false}, {"id": "day3-6", "time": "12:30", "name": "海坊厨 午間洋食", "desc": "青森駅徒步6分，午間為洋食、晚間變身海鮮創作料理。建議事先電話訂位。 ⭐食べログ3.53", "maps": "https://www.google.com/maps/search/?api=1&query=%E6%B5%B7%E5%9D%8A%E5%8E%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%8F%A4%E5%B7%9D1-13-12", "custom": false}, {"id": "day3-7", "time": "14:00", "name": "巴士 → 三內丸山遺跡", "desc": "由青森站搭乘市營巴士或ねぶたん号前往，車程約30–35分。", "maps": null, "custom": false}, {"id": "day3-8", "time": "14:35", "name": "三內丸山遺跡", "desc": "世界遺產「北海道・北東北の縄文遺跡群」之一，開館時間與門票建議出發前再確認。", "maps": "https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E5%86%85%E4%B8%B8%E5%B1%B1%E9%81%BA%E8%B7%A1%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E4%B8%89%E5%86%85%E4%B8%B8%E5%B1%B1305", "custom": false}, {"id": "day3-9", "time": "16:15", "name": "あおもり旬味館", "desc": "新青森駅內伴手禮商場，蘋果製品・帆立・南部煎餅一次買齊，不必再回市區。同時取回寄放的行李。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%81%82%E3%81%8A%E3%82%82%E3%82%8A%E6%97%AC%E5%91%B3%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%A4%A7%E5%AD%97%E7%9F%B3%E6%B1%9F%E5%AD%97%E9%AB%98%E9%96%93", "custom": false}, {"id": "day3-10", "time": "17:44", "name": "新青森 → 上野 Hayabusa 38號", "desc": "東北新幹線最速達列車，約2小時58分直達上野，為這趟旅程畫下句點。（已訂・6號車14番D）", "maps": null, "custom": false}]}, "pool": {"day1": [{"id": "pool-day1-0", "name": "大正浪漫喫茶室（坐下來吃）", "desc": "⭐ 食べログ 3.59（478則）　藤田記念庭園內、大正10年洋館原貌的空間，6種蘋果派可選，能一次比較著吃。招牌「オークレール」不加肉桂、「タムラファーム」偏酸香。不接受訂位，尖峰時段要排隊。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%AD%A3%E6%B5%AA%E6%BC%AB%E5%96%AB%E8%8C%B6%E5%AE%A4%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8A%E7%99%BD%E9%8A%80%E7%94%BA8-1%20%E8%97%A4%E7%94%B0%E8%A8%98%E5%BF%B5%E5%BA%AD%E5%9C%92%E5%86%85", "tier": "蘋果派 主推", "kind": "food"}, {"id": "pool-day1-1", "name": "ポポロ（外帶①）", "desc": "⭐ 食べログ 3.17（26則）・Google 4.6　藤田記念庭園步行可達的小麵包店，招牌是「弘前蘋果卡士達可頌派」。當地人日常愛店，每週一、三公休。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%83%9D%E3%83%9D%E3%83%AD%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA17-11", "tier": "蘋果派 主推", "kind": "food"}, {"id": "pool-day1-2", "name": "ラグノオアプリ（外帶②・車站內）", "desc": "⭐ 食べログ 3.03　弘前車站內的老牌菓子店，招牌「気になるリンゴ」是用整顆蘋果做的蘋果派，也有蘋果條狀點心。上車前直接買最順路。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%83%A9%E3%82%B0%E3%83%8E%E3%82%AA%E3%82%A2%E3%83%97%E3%83%AA%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E8%A1%A8%E7%94%BA2-11%20%E3%82%A2%E3%83%97%E3%83%AA%E3%83%BC%E3%82%BA1F", "tier": "蘋果派 主推", "kind": "food"}, {"id": "pool-day1-3", "name": "Angélique（グランメルシー）", "desc": "⭐ 3.64　弘前蘋果派代表店之一，但8/4週二公休，這趟去不了。", "maps": "https://www.google.com/maps/search/?api=1&query=Ang%C3%A9lique%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E9%87%8E%E7%94%B01-3-16", "tier": "蘋果派 備選", "kind": "food"}, {"id": "pool-day1-4", "name": "ル・ショコラ", "desc": "⭐ 3.55　用杏桃醬提味，酸甜口感是特色。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%83%AB%E3%83%BB%E3%82%B7%E3%83%A7%E3%82%B3%E3%83%A9%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%BE%92%E7%94%BA17-1", "tier": "蘋果派 備選", "kind": "food"}, {"id": "pool-day1-5", "name": "Le Castle Factory", "desc": "⭐ 3.54　飯店直營甜點店，使用富士蘋果製作。", "maps": "https://www.google.com/maps/search/?api=1&query=Le%20Castle%20Factory%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8A%E9%9E%98%E5%B8%AB%E7%94%BA24-1%20%E3%83%9B%E3%83%86%E3%83%AB%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B9%E3%83%AB1F", "tier": "蘋果派 備選", "kind": "food"}, {"id": "pool-day1-6", "name": "可否屋 葡瑠満", "desc": "⭐ 3.56　肉桂粉最後才灑，整體甜度偏低。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%8F%AF%E5%90%A6%E5%B1%8B%20%E8%91%A1%E7%91%A0%E6%BA%80%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA17-39", "tier": "蘋果派 備選", "kind": "food"}, {"id": "pool-day1-7", "name": "万茶ン", "desc": "⭐ 3.43　太宰治也造訪過的東北最老喫茶店，很有懷舊氣氛。", "maps": "https://www.google.com/maps/search/?api=1&query=%E4%B8%87%E8%8C%B6%E3%83%B3%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%9C%9F%E6%89%8B%E7%94%BA36-6", "tier": "蘋果派 備選", "kind": "food"}, {"id": "pool-day1-8", "name": "たかはし中華そば店", "desc": "⭐ 3.69　小魚乾湯底拉麵名店，離市區稍遠，但被在地人稱為「聖地」。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%81%9F%E3%81%8B%E3%81%AF%E3%81%97%E4%B8%AD%E8%8F%AF%E3%81%9D%E3%81%B0%E5%BA%97%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E6%92%AB%E7%89%9B%E5%AD%901-3-6", "tier": "美食 主推", "kind": "food"}, {"id": "pool-day1-9", "name": "三忠食堂 本店", "desc": "⭐ 3.45　津輕蕎麥麵元祖老店，蕎麥粉混黃豆粉、以烤乾魚熬湯頭。", "maps": "https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E5%BF%A0%E9%A3%9F%E5%A0%82%20%E6%9C%AC%E5%BA%97%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E5%92%8C%E5%BE%B3%E7%94%BA164", "tier": "美食 主推", "kind": "food"}, {"id": "pool-day1-10", "name": "そば処 こぎん", "desc": "⭐ 3.29　弘前車站直通，人稱「夢幻津輕蕎麥麵」。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%81%9D%E3%81%B0%E5%87%A6%20%E3%81%93%E3%81%8E%E3%82%93%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E8%A1%A8%E7%94%BA2-11%20%E3%82%A2%E3%83%97%E3%83%AA%E3%83%BC%E3%82%BA1F", "tier": "美食 主推", "kind": "food"}, {"id": "pool-day1-11", "name": "土紋", "desc": "⭐ 3.60　鄉土料理居酒屋，招牌是烏賊肉餅（いがめんち），適合當晚餐。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%9C%9F%E7%B4%8B%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%BB%A3%E5%AE%98%E7%94%BA99", "tier": "美食 主推", "kind": "food"}, {"id": "pool-day1-12", "name": "創作郷土料理の店 菊富士 本店", "desc": "⭐ 3.46　扇貝味噌燒＋烏賊肉餅定食，一次吃到兩樣招牌。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%89%B5%E4%BD%9C%E9%83%B7%E5%9C%9F%E6%96%99%E7%90%86%E3%81%AE%E5%BA%97%20%E8%8F%8A%E5%AF%8C%E5%A3%AB%20%E6%9C%AC%E5%BA%97%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%9D%82%E6%9C%AC%E7%94%BA1", "tier": "美食 主推", "kind": "food"}, {"id": "pool-day1-13", "name": "あば", "desc": "⭐ 3.29（61則）　東栄飯店1樓的鄉土料理店，津輕海峽鮮魚直接跟漁行採購，生魚片和海鮮創作料理是強項，全店約24席，中央弘前站徒步6分。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%81%82%E3%81%B0%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%9C%9F%E6%89%8B%E7%94%BA166%20%E6%9D%B1%E6%A0%84%E3%83%9B%E3%83%86%E3%83%AB1F", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day1-14", "name": "四季亭", "desc": "⭐ 3.25　在地評價很高的海鮮居酒屋，以新鮮生魚片聞名，招牌是烏賊肉餅牛排配奶油紫蘇醬，日本酒選項豐富，中央弘前站徒步5–7分。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%9B%9B%E5%AD%A3%E4%BA%AD%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E8%A6%AA%E6%96%B9%E7%94%BA43", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day1-15", "name": "津軽の酒処 わたみ", "desc": "⭐ 3.46（弘前駅徒歩3分）　弘前車站旁的居酒屋，雖是全國連鎖但主打在地食材，招牌是烏賊肉餅、嶽きみ，地酒品項超過150種。", "maps": "https://www.google.com/maps/search/?api=1&query=%E6%B4%A5%E8%BB%BD%E3%81%AE%E9%85%92%E5%87%A6%20%E3%82%8F%E3%81%9F%E3%81%BF%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E9%A7%85%E5%89%8D%E7%94%BA6-3", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day1-16", "name": "津軽衆", "desc": "⭐ 3.45　弘前車站徒步4分的居酒屋，招牌是100円起的扇貝味噌燒、烏賊肉餅、串炸，走親民路線。", "maps": "https://www.google.com/maps/search/?api=1&query=%E6%B4%A5%E8%BB%BD%E8%A1%86%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E7%94%BA1-6-2", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day1-17", "name": "松ノ木", "desc": "⭐ 3.38（駅前）　弘前車站徒步5分的和食創作料理店，午間定食做得細緻，推薦銀鱈套餐，午餐約999円起。", "maps": "https://www.google.com/maps/search/?api=1&query=%E6%9D%BE%E3%83%8E%E6%9C%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E9%A7%85%E5%89%8D%E7%94%BA13-1", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day1-18", "name": "佐和家", "desc": "⭐ 3.09　弘前公園附近的和食餐廳，創業30多年，推薦鄉土定食「つがる路定食」，全年無休，也接會席料理宴席。", "maps": "https://www.google.com/maps/search/?api=1&query=%E4%BD%90%E5%92%8C%E5%AE%B6%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E6%9C%AC%E7%94%BA91", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day1-19", "name": "PIZZERIA MIA", "desc": "⭐ 食べログ3.19・Google 4.3　主廚曾在米其林三星餐廳歷練過，用北海道自製莫札瑞拉起司、蘋果木窯烤披薩，義式冰淇淋現做，是弘前少見的道地窯烤披薩店。", "maps": "https://www.google.com/maps/search/?api=1&query=PIZZERIA%20MIA%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%BB%A3%E5%AE%98%E7%94%BA", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day1-20", "name": "ふじや", "desc": "⭐ 3.33（57則）　土手町商場2樓的日式料理店「わ食処ふじや」，以新鮮生魚片和在地酒聞名，週日公休。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%81%B5%E3%81%98%E3%82%84%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%9C%9F%E6%89%8B%E7%94%BA36-6%20%E3%83%97%E3%83%A9%E3%82%B6%E3%82%B7%E3%83%A3%E3%83%AB%E3%83%9E2F", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day1-21", "name": "津軽旨米屋", "desc": "⭐ 3.31　位在津輕藩睡魔村園區內，是認證的「津輕料理遺產傳承店」，招牌是用200公斤石窯跟三升炊鐵鍋煮的白飯，配貝燒味噌、けの汁、扇貝可樂餅咖哩等定食，能同時逛展覽。", "maps": "https://www.google.com/maps/search/?api=1&query=%E6%B4%A5%E8%BB%BD%E6%97%A8%E7%B1%B3%E5%B1%8B%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%BA%80%E7%94%B2%E7%94%BA61%20%E6%B4%A5%E8%BB%BD%E8%97%A9%E3%81%AD%E3%81%B7%E3%81%9F%E6%9D%91", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day1-22", "name": "弘前市民会館の喫茶室", "desc": "⭐ 食べログまとめ精選店　弘前公園內、建築師前川國男操刀的昭和摩登建築，店內常備20多種生豆自家烘焙，招牌是厚實鬆軟的鬆餅。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%BC%98%E5%89%8D%E5%B8%82%E6%B0%91%E4%BC%9A%E9%A4%A8%E3%81%AE%E5%96%AB%E8%8C%B6%E5%AE%A4%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA1-6%20%E5%BC%98%E5%89%8D%E5%B8%82%E6%B0%91%E4%BC%9A%E9%A4%A8%E5%86%85", "tier": "咖啡・甜點", "kind": "food"}, {"id": "pool-day1-23", "name": "万茶ン", "desc": "⭐ 3.43　太宰治也造訪過的東北最老喫茶店，很有懷舊氣氛。", "maps": "https://www.google.com/maps/search/?api=1&query=%E4%B8%87%E8%8C%B6%E3%83%B3%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%9C%9F%E6%89%8B%E7%94%BA36-6", "tier": "咖啡・甜點", "kind": "food"}, {"id": "pool-day1-24", "name": "可否屋 葡瑠満", "desc": "⭐ 3.56　肉桂粉最後才灑，整體甜度偏低的蘋果派名店。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%8F%AF%E5%90%A6%E5%B1%8B%20%E8%91%A1%E7%91%A0%E6%BA%80%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA17-39", "tier": "咖啡・甜點", "kind": "food"}, {"id": "pool-day1-25", "name": "弘前市立觀光館", "desc": "免費領取官方《弘前蘋果派導覽地圖》（收錄約45家店，由觀光館職員實際試吃評分）。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%BC%98%E5%89%8D%E5%B8%82%E7%AB%8B%E8%A6%B3%E5%85%89%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA2-1", "tier": "景點", "kind": "sight"}, {"id": "pool-day1-26", "name": "藤田記念庭園", "desc": "開放時間9:00–17:00，門票320円，大正浪漫喫茶室就在園內。", "maps": "https://www.google.com/maps/search/?api=1&query=%E8%97%A4%E7%94%B0%E8%A8%98%E5%BF%B5%E5%BA%AD%E5%9C%92%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%A4%A7%E5%AD%97%E4%B8%8A%E7%99%BD%E9%8A%80%E7%94%BA8-1", "tier": "景點", "kind": "sight"}, {"id": "pool-day1-27", "name": "弘前城（弘前公園）", "desc": "本丸開放9:00–17:00，門票320円，公園本身24小時開放。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%BC%98%E5%89%8D%E5%9F%8E%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E4%B8%8B%E7%99%BD%E9%8A%80%E7%94%BA1", "tier": "景點", "kind": "sight"}, {"id": "pool-day1-28", "name": "弘前れんが倉庫美術館", "desc": "雨天備案，館內加咖啡廳可以待上90分鐘。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%BC%98%E5%89%8D%E3%82%8C%E3%82%93%E3%81%8C%E5%80%89%E5%BA%AB%E7%BE%8E%E8%A1%93%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%BC%98%E5%89%8D%E5%B8%82%E5%90%89%E9%87%8E%E7%94%BA2-1", "tier": "景點", "kind": "sight"}], "day2": [{"id": "pool-day2-29", "name": "佐藤養助 秋田店", "desc": "⭐ 3.51（1199則）　創業150年，稻庭烏龍麵的代表老店，秋田車站徒步3分。", "maps": "https://www.google.com/maps/search/?api=1&query=%E4%BD%90%E8%97%A4%E9%A4%8A%E5%8A%A9%20%E7%A7%8B%E7%94%B0%E5%BA%97%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A2-6-1%20%E8%A5%BF%E6%AD%A6%E7%A7%8B%E7%94%B0%E5%BA%97B1F", "tier": "美食 主推", "kind": "food"}, {"id": "pool-day2-30", "name": "稲庭うどん 無限堂 秋田駅前店", "desc": "⭐ 3.53　秋田車站徒步4分，招牌比內地雞套餐很受歡迎。", "maps": "https://www.google.com/maps/search/?api=1&query=%E7%A8%B2%E5%BA%AD%E3%81%86%E3%81%A9%E3%82%93%20%E7%84%A1%E9%99%90%E5%A0%82%20%E7%A7%8B%E7%94%B0%E9%A7%85%E5%89%8D%E5%BA%97%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A2%E4%B8%81%E7%9B%AE4-12", "tier": "美食 主推", "kind": "food"}, {"id": "pool-day2-31", "name": "寛文五年堂 秋田店", "desc": "⭐ 3.60　就在晝竿燈會場旁，吃完飯直接去卡位最順。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%AF%9B%E6%96%87%E4%BA%94%E5%B9%B4%E5%A0%82%20%E7%A7%8B%E7%94%B0%E5%BA%97%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A1-4-3%20%E3%82%A8%E3%83%AA%E3%82%A2%E3%81%AA%E3%81%8B%E3%81%84%E3%81%A11F", "tier": "美食 主推", "kind": "food"}, {"id": "pool-day2-32", "name": "とっぴんぱらりのぷ", "desc": "⭐ 3.62　居酒屋百大名店之一，招牌是米棒鍋與圍爐炭火燒烤，適合當晚餐。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%81%A8%E3%81%A3%E3%81%B4%E3%82%93%E3%81%B1%E3%82%89%E3%82%8A%E3%81%AE%E3%81%B7%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%8D%83%E7%A7%8B%E4%B9%85%E4%BF%9D%E7%94%B0%E7%94%BA4-5%20%E7%A7%8B%E7%94%B0%E9%A7%85%E5%89%8D%E3%83%93%E3%83%AB5F", "tier": "美食 主推", "kind": "food"}, {"id": "pool-day2-33", "name": "秋田長屋酒場", "desc": "⭐ 3.51　以觀光客為主的鄉土料理店，還有生剝鬼（なまはげ）表演可看。", "maps": "https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E9%95%B7%E5%B1%8B%E9%85%92%E5%A0%B4%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A4-16-17", "tier": "美食 主推", "kind": "food"}, {"id": "pool-day2-34", "name": "喰処 北洲", "desc": "⭐ 3.59　位在大町、秋田車站徒步14分的老字號米棒鍋專門店，晚餐限定，坐榻榻米座位邊看河景邊吃，米棒烤過表皮有焦香、湯頭濃郁。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%96%B0%E5%87%A6%20%E5%8C%97%E6%B4%B2%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%A4%A7%E7%94%BA4-1-11", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day2-35", "name": "秋田きりたんぽ屋", "desc": "⭐ 3.47　古民家風裝潢、擺滿民藝品的居酒屋，自製大份量米棒鍋、比內地雞湯，還有煙燻醃蘿蔔、野生蕨菜等秋田特色小菜，有包廂可以悠閒用餐。", "maps": "https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E3%81%8D%E3%82%8A%E3%81%9F%E3%82%93%E3%81%BD%E5%B1%8B%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A2-7-6", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day2-36", "name": "酒季亭 比内や 秋田店", "desc": "⭐ 3.57　創業40年的比內地雞專門店，秋田車站徒步15分，使用有產地證明、放養5–6個月的比內地雞，米棒鍋湯頭喝到最後都好喝，店內氣氛像老字號旅館。", "maps": "https://www.google.com/maps/search/?api=1&query=%E9%85%92%E5%AD%A3%E4%BA%AD%20%E6%AF%94%E5%86%85%E3%82%84%20%E7%A7%8B%E7%94%B0%E5%BA%97%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%A4%A7%E7%94%BA4-2-2", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day2-37", "name": "さけ富", "desc": "⭐ 3.74　秋田おでん專門店，湯頭用白神山系湧泉、男鹿鹽和魚露熬煮，2025年入選「東日本居酒屋百名店」，適合配秋田地酒慢慢吃。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%81%95%E3%81%91%E5%AF%8C%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%A4%A7%E7%94%BA5-1-27", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day2-38", "name": "酒盃", "desc": "⭐ 4.12　山王地區超過40年的老字號居酒屋，古民家氛圍配裸燈泡，主打無菜單料理（4000円起）配約50種秋田地酒，熱門到需提前一個月訂位。", "maps": "https://www.google.com/maps/search/?api=1&query=%E9%85%92%E7%9B%83%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%B1%B1%E7%8E%8B1-6-9", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day2-39", "name": "元祖 むらさき", "desc": "⭐ 3.72　大館市超過70年的比內地雞老店，除了米棒鍋還有雞排、唐揚、鹽烤等多種吃法，位置離秋田市區較遠，適合時間充裕時排入。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%85%83%E7%A5%96%20%E3%82%80%E3%82%89%E3%81%95%E3%81%8D%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E5%A4%A7%E9%A4%A8%E5%B8%82%E5%B9%B8%E7%94%BA12-9", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day2-40", "name": "花善", "desc": "⭐ 3.48　大館車站的知名鐵路便當「鶏めし弁当」，用祕傳高湯燉飯配甘辛雞肉，2015、2016連續拿下JR東日本「駅弁大將軍」，冷了也好吃，適合買了帶上車。", "maps": "https://www.google.com/maps/search/?api=1&query=%E8%8A%B1%E5%96%84%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E5%A4%A7%E9%A4%A8%E5%B8%82%E5%BE%A1%E6%88%90%E7%94%BA1-10-2", "tier": "美食 備選", "kind": "food"}, {"id": "pool-day2-41", "name": "エリアなかいち にぎわい広場", "desc": "晝竿燈妙技大會的會場，秋田車站徒步約10分。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%82%A8%E3%83%AA%E3%82%A2%E3%81%AA%E3%81%8B%E3%81%84%E3%81%A1%20%E3%81%AB%E3%81%8E%E3%82%8F%E3%81%84%E5%BA%83%E5%A0%B4%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A1-4-1", "tier": "景點", "kind": "sight"}, {"id": "pool-day2-42", "name": "秋田市民俗芸能伝承館（ねぶり流し館）", "desc": "展示實體竿燈，可免費租借傳統法被外掛和頭巾拍照。開放時間需自行確認。", "maps": "https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E5%B8%82%E6%B0%91%E4%BF%97%E8%8A%B8%E8%83%BD%E4%BC%9D%E6%89%BF%E9%A4%A8%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%A4%A7%E7%94%BA1-3-30", "tier": "景點", "kind": "sight"}, {"id": "pool-day2-43", "name": "千秋公園（久保田城）", "desc": "御隅櫓開放9:00–16:30，公園本身24小時開放。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%8D%83%E7%A7%8B%E5%85%AC%E5%9C%92%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%8D%83%E7%A7%8B%E5%85%AC%E5%9C%921-39", "tier": "景點", "kind": "sight"}, {"id": "pool-day2-44", "name": "秋田県立美術館", "desc": "雨天備案，館內有藤田嗣治巨幅壁畫《秋田的行事》，就在なかいち商業區旁。", "maps": "https://www.google.com/maps/search/?api=1&query=%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%AB%8B%E7%BE%8E%E8%A1%93%E9%A4%A8%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E4%B8%AD%E9%80%9A1-4-2", "tier": "景點", "kind": "sight"}, {"id": "pool-day2-45", "name": "赤れんが郷土館", "desc": "雨天備案，舊秋田銀行本店建築，是日本重要文化財。", "maps": "https://www.google.com/maps/search/?api=1&query=%E8%B5%A4%E3%82%8C%E3%82%93%E3%81%8C%E9%83%B7%E5%9C%9F%E9%A4%A8%20%E7%A7%8B%E7%94%B0%E7%9C%8C%E7%A7%8B%E7%94%B0%E5%B8%82%E5%A4%A7%E7%94%BA3-3-21", "tier": "景點", "kind": "sight"}], "day3": [{"id": "pool-day3-46", "name": "味の札幌 大西（本命）", "desc": "⭐ 3.59（1369則）　味噌咖哩牛奶拉麵人氣No.1，加奶油版約880円，青森車站徒步10分。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%91%B3%E3%81%AE%E6%9C%AD%E5%B9%8C%20%E5%A4%A7%E8%A5%BF%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%8F%A4%E5%B7%9D1%E4%B8%81%E7%9B%AE15-6", "tier": "拉麵", "kind": "food"}, {"id": "pool-day3-47", "name": "味の札幌 浅利", "desc": "⭐ 3.55　青森車站徒步5分，吧檯座位8席，招牌是自製辣味噌拉麵。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%91%B3%E3%81%AE%E6%9C%AD%E5%B9%8C%20%E6%B5%85%E5%88%A9%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E6%96%B0%E7%94%BA1%E4%B8%81%E7%9B%AE11-23", "tier": "拉麵", "kind": "food"}, {"id": "pool-day3-48", "name": "札幌館", "desc": "⭐ 3.54　新青森車站車程5分，也有販售可帶回家的伴手禮拉麵。", "maps": "https://www.google.com/maps/search/?api=1&query=%E6%9C%AD%E5%B9%8C%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E7%9F%B3%E6%B1%9F%E5%B2%A156-3", "tier": "拉麵", "kind": "food"}, {"id": "pool-day3-49", "name": "かわら", "desc": "⭐ 3.43　以生薑提味的版本，口味較清爽。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%81%8B%E3%82%8F%E3%82%89%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%A4%A7%E5%AD%97%E7%AD%92%E4%BA%95%E5%AD%97%E5%85%AB%E3%83%84%E6%A9%8B40-5", "tier": "拉麵", "kind": "food"}, {"id": "pool-day3-50", "name": "青森魚菜センター（古川市場）", "desc": "⭐ 在地市場・非食べログ評分　先買券再自選食材，做成一碗專屬的海鮮蓋飯。青森車站徒步約7分，上午到中午人氣最旺。", "maps": "https://www.google.com/maps/search/?api=1&query=%E9%9D%92%E6%A3%AE%E9%AD%9A%E8%8F%9C%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%8F%A4%E5%B7%9D", "tier": "午餐・其他", "kind": "food"}, {"id": "pool-day3-51", "name": "海坊厨（本命・已固定）", "desc": "⭐ 3.53　午間供應洋食、晚間變身海鮮創作料理，青森車站徒步6分，建議事先電話訂位。", "maps": "https://www.google.com/maps/search/?api=1&query=%E6%B5%B7%E5%9D%8A%E5%8E%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%8F%A4%E5%B7%9D1-13-12", "tier": "午餐・其他", "kind": "food"}, {"id": "pool-day3-52", "name": "True", "desc": "⭐ Google 4.7　日式咖哩專賣店，在地評價很高。", "maps": "https://www.google.com/maps/search/?api=1&query=True%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82", "tier": "午餐・其他", "kind": "food"}, {"id": "pool-day3-53", "name": "茶房CoCo", "desc": "⭐ Google 4.1　氣氛沉穩的老派咖啡廳。", "maps": "https://www.google.com/maps/search/?api=1&query=%E8%8C%B6%E6%88%BFCoCo%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82", "tier": "午餐・其他", "kind": "food"}, {"id": "pool-day3-54", "name": "ねぶたの家 ワ・ラッセ", "desc": "8月營業時間9:00–19:00（最後入館18:30），館內有實體大型睡魔展示。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%81%AD%E3%81%B6%E3%81%9F%E3%81%AE%E5%AE%B6%20%E3%83%AF%E3%83%BB%E3%83%A9%E3%83%83%E3%82%BB%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%AE%89%E6%96%B91-1-1", "tier": "景點", "kind": "sight"}, {"id": "pool-day3-55", "name": "善知鳥神社", "desc": "青森市總鎮守、青森發祥之地，境內安靜，觀光客不多。", "maps": "https://www.google.com/maps/search/?api=1&query=%E5%96%84%E7%9F%A5%E9%B3%A5%E7%A5%9E%E7%A4%BE%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%AE%89%E6%96%B92-7-18", "tier": "景點", "kind": "sight"}, {"id": "pool-day3-56", "name": "A-FACTORY", "desc": "蘋果氣泡酒工坊加伴手禮商場，就在青森車站旁。", "maps": "https://www.google.com/maps/search/?api=1&query=A-FACTORY%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E6%9F%B3%E5%B7%9D1-4-2", "tier": "景點", "kind": "sight"}, {"id": "pool-day3-57", "name": "青函連絡船 八甲田丸", "desc": "退役船艦改建的實物博物館，就在A-FACTORY對面。", "maps": "https://www.google.com/maps/search/?api=1&query=%E9%9D%92%E5%87%BD%E9%80%A3%E7%B5%A1%E8%88%B9%20%E5%85%AB%E7%94%B2%E7%94%B0%E4%B8%B8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E6%9F%B3%E5%B7%9D1-112-15", "tier": "景點", "kind": "sight"}, {"id": "pool-day3-58", "name": "三内丸山遺跡", "desc": "世界遺產「北海道・北東北繩文遺跡群」之一，開館時間需自行確認。", "maps": "https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E5%86%85%E4%B8%B8%E5%B1%B1%E9%81%BA%E8%B7%A1%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E4%B8%89%E5%86%85%E4%B8%B8%E5%B1%B1305", "tier": "景點", "kind": "sight"}, {"id": "pool-day3-59", "name": "青森県立美術館", "desc": "雨天備案，可看奈良美智作品《青森犬》與夏卡爾三聯畫，和三內丸山同一巴士站。", "maps": "https://www.google.com/maps/search/?api=1&query=%E9%9D%92%E6%A3%AE%E7%9C%8C%E7%AB%8B%E7%BE%8E%E8%A1%93%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%AE%89%E7%94%B0%E5%AD%97%E8%BF%91%E9%87%8E185", "tier": "景點", "kind": "sight"}, {"id": "pool-day3-60", "name": "あおもり旬味館", "desc": "新青森車站內的伴手禮商場。", "maps": "https://www.google.com/maps/search/?api=1&query=%E3%81%82%E3%81%8A%E3%82%82%E3%82%8A%E6%97%AC%E5%91%B3%E9%A4%A8%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%A4%A7%E5%AD%97%E7%9F%B3%E6%B1%9F%E5%AD%97%E9%AB%98%E9%96%93", "tier": "景點", "kind": "sight"}]}};
+
+// ====== Firebase 設定（請依 Firebase 設定教學貼上你自己的資料）======
+const firebaseConfig = {
+  apiKey: "AIzaSyAv_O4_lRnr8dJYyXxl17sVrbB8E8oeo_Q",
+  authDomain: "aomori-trip-0804.firebaseapp.com",
+  databaseURL: "https://aomori-trip-0804-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "aomori-trip-0804",
+  storageBucket: "aomori-trip-0804.firebasestorage.app",
+  messagingSenderId: "427303439085",
+  appId: "1:427303439085:web:bd801beb6fe6da04381ae4",
+  measurementId: "G-HFECXSPWDQ"
+};
+// ===================================================================
+
+let fbEnabled = false;
+let fbRef = null;
+let dragInProgress = false;
+let editingInProgress = false;
+
+const LS_KEY = 'aomori_trip_state_v1';
+
+// ---- 初始狀態 ----
+function buildInitialState() {
+  const itemsById = {};
+  const itineraryOrder = {};
+  const poolOrder = {};
+  PAYLOAD.dayOrder.forEach(dayId => {
+    itineraryOrder[dayId] = [];
+    (PAYLOAD.itinerary[dayId] || []).forEach(it => {
+      itemsById[it.id] = { name: it.name, time: it.time, desc: it.desc, maps: it.maps, custom: false, tier: null, kind: 'itinerary' };
+      itineraryOrder[dayId].push(it.id);
+    });
+    poolOrder[dayId] = [];
+    (PAYLOAD.pool[dayId] || []).forEach(it => {
+      itemsById[it.id] = { name: it.name, time: null, desc: it.desc, maps: it.maps, custom: false, tier: it.tier, kind: it.kind };
+      poolOrder[dayId].push(it.id);
+    });
+  });
+  return { itineraryOrder, poolOrder, itemsById };
+}
+
+let state = buildInitialState();
+
+function loadLocal() {
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed && parsed.itemsById) return parsed;
+    }
+  } catch(e) {}
+  return null;
+}
+
+function saveLocal() {
+  try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch(e) {}
+}
+
+const localBaseline = loadLocal();
+if (localBaseline) state = localBaseline;
+
+let currentDay = PAYLOAD.dayOrder[0];
+let sortableItinerary = null;
+let sortablePool = null;
+
+function setBanner(mode) {
+  const el = document.getElementById('sync-banner');
+  if (mode === 'ok') {
+    el.className = 'ok';
+    el.textContent = '☁️ 雲端同步已連接：您和旅伴排的順序會即時同步。';
+  } else {
+    el.className = 'off';
+    el.textContent = '⚠️ 尚未連接雲端同步，目前排序只暫存在這台裝置，重新整理／換裝置會看不到最新結果。';
+  }
+}
+
+function initFirebase() {
+  if (firebaseConfig.apiKey === 'REPLACE_ME' || !firebaseConfig.databaseURL || firebaseConfig.databaseURL === 'REPLACE_ME') {
+    setBanner('off');
+    return;
+  }
+  try {
+    firebase.initializeApp(firebaseConfig);
+    fbRef = firebase.database().ref('trip/state');
+    fbEnabled = true;
+    setBanner('ok');
+    fbRef.on('value', snap => {
+      if (dragInProgress || editingInProgress) return;
+      const val = snap.val();
+      if (val && val.itemsById) {
+        state = val;
+        saveLocal();
+        renderAll();
+      } else {
+        fbRef.set(state);
+      }
+    });
+  } catch (e) {
+    console.error(e);
+    setBanner('off');
+  }
+}
+
+function persist() {
+  saveLocal();
+  if (fbEnabled && fbRef) fbRef.set(state);
+}
+
+function escapeHtml(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function itineraryCardHTML(id) {
+  const it = state.itemsById[id];
+  const mapsHtml = it.maps ? `<a class="maps-link" href="${it.maps}" target="_blank" rel="noopener">📍 Google Maps 導航</a>` : '';
+  return `<li class="card" data-id="${id}">
+    <span class="drag-handle">⋮⋮</span>
+    <div class="card-body">
+      <div class="card-top">
+        <span class="time-badge" data-field="time" data-id="${id}">${escapeHtml(it.time || '--:--')}</span>
+        <span class="name-text" data-field="name" data-id="${id}">${escapeHtml(it.name)}</span>
+      </div>
+      ${it.desc ? `<div class="desc-text">${escapeHtml(it.desc)}</div>` : ''}
+      ${mapsHtml}
+    </div>
+    <button class="delete-btn" data-action="delete-itinerary" data-id="${id}">✕</button>
+  </li>`;
+}
+
+function poolCardHTML(id) {
+  const it = state.itemsById[id];
+  const mapsHtml = it.maps ? `<a class="maps-link" href="${it.maps}" target="_blank" rel="noopener">📍 Google Maps 導航</a>` : '';
+  return `<li class="pool-card" data-id="${id}">
+    <span class="drag-handle">⋮⋮</span>
+    <div class="card-body">
+      <div class="card-top">
+        ${it.tier ? `<span class="tier-badge">${escapeHtml(it.tier)}</span>` : ''}
+        <span class="name-text" data-field="name" data-id="${id}">${escapeHtml(it.name)}</span>
+      </div>
+      ${it.desc ? `<div class="desc-text">${escapeHtml(it.desc)}</div>` : ''}
+      ${mapsHtml}
+    </div>
+  </li>`;
+}
+
+function renderDayTabs() {
+  const nav = document.getElementById('day-tabs');
+  nav.innerHTML = PAYLOAD.dayOrder.map(dayId => {
+    const meta = PAYLOAD.dayMeta[dayId];
+    const active = dayId === currentDay ? 'active' : '';
+    return `<button class="${active}" data-day="${dayId}">${meta.label}</button>`;
+  }).join('');
+  nav.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentDay = btn.dataset.day;
+      renderAll();
+    });
+  });
+}
+
+function renderDayHeader() {
+  const meta = PAYLOAD.dayMeta[currentDay];
+  document.getElementById('day-title').textContent = meta.title;
+  document.getElementById('day-intro').textContent = meta.intro;
+  document.getElementById('day-warn').textContent = '⚠️ ' + meta.warning;
+  document.getElementById('pool-title').textContent = '🍽 美食＆景點候選（拖曳到上面行程表，時間可點一下自行輸入）';
+}
+
+function renderLists() {
+  const itUl = document.getElementById('itinerary-list');
+  const poolUl = document.getElementById('pool-list');
+  itUl.innerHTML = state.itineraryOrder[currentDay].map(itineraryCardHTML).join('');
+  poolUl.innerHTML = state.poolOrder[currentDay].map(poolCardHTML).join('');
+
+  if (sortableItinerary) sortableItinerary.destroy();
+  if (sortablePool) sortablePool.destroy();
+
+  const groupName = 'shared-' + currentDay;
+
+  sortableItinerary = new Sortable(itUl, {
+    group: groupName,
+    animation: 150,
+    handle: '.drag-handle',
+    onStart: () => dragInProgress = true,
+    onEnd: () => { dragInProgress = false; },
+    onAdd: (evt) => {
+      const id = evt.item.dataset.id;
+      // 從候選池拖進來的項目，補上時間欄位，重新渲染成行程卡片樣式
+      const it = state.itemsById[id];
+      if (it.time === null || it.time === undefined) it.time = '--:--';
+      it.kind = 'itinerary';
+      evt.item.outerHTML = itineraryCardHTML(id);
+      syncOrdersFromDom();
+    },
+    onUpdate: () => syncOrdersFromDom(),
+    onRemove: () => syncOrdersFromDom(),
+  });
+
+  sortablePool = new Sortable(poolUl, {
+    group: groupName,
+    animation: 150,
+    handle: '.drag-handle',
+    onStart: () => dragInProgress = true,
+    onEnd: () => { dragInProgress = false; },
+    onAdd: (evt) => {
+      const id = evt.item.dataset.id;
+      evt.item.outerHTML = poolCardHTML(id);
+      syncOrdersFromDom();
+    },
+    onUpdate: () => syncOrdersFromDom(),
+    onRemove: () => syncOrdersFromDom(),
+  });
+}
+
+function syncOrdersFromDom() {
+  const itUl = document.getElementById('itinerary-list');
+  const poolUl = document.getElementById('pool-list');
+  state.itineraryOrder[currentDay] = [...itUl.children].map(li => li.dataset.id);
+  state.poolOrder[currentDay] = [...poolUl.children].map(li => li.dataset.id);
+  persist();
+}
+
+function renderAll() {
+  renderDayTabs();
+  renderDayHeader();
+  renderLists();
+}
+
+// ---- 行內編輯（點時間 / 點店名）----
+document.addEventListener('click', (e) => {
+  const target = e.target.closest('[data-field]');
+  if (!target) return;
+  if (target.tagName === 'INPUT') return;
+  const field = target.dataset.field;
+  const id = target.dataset.id;
+  const current = state.itemsById[id][field] || '';
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.value = current;
+  input.style.font = 'inherit';
+  input.style.width = field === 'time' ? '70px' : '160px';
+  target.replaceWith(input);
+  input.focus();
+  input.select();
+  editingInProgress = true;
+  const commit = () => {
+    state.itemsById[id][field] = input.value.trim();
+    editingInProgress = false;
+    persist();
+    renderLists();
+  };
+  input.addEventListener('blur', commit);
+  input.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') input.blur(); });
+});
+
+// ---- 刪除行程卡 ----
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('[data-action="delete-itinerary"]');
+  if (!btn) return;
+  const id = btn.dataset.id;
+  if (!confirm('確定要刪除這筆行程嗎？')) return;
+  state.itineraryOrder[currentDay] = state.itineraryOrder[currentDay].filter(x => x !== id);
+  persist();
+  renderLists();
+});
+
+// ---- 新增空白卡 ----
+document.getElementById('add-toggle').addEventListener('click', () => {
+  document.getElementById('add-form').classList.toggle('open');
+});
+document.getElementById('add-confirm').addEventListener('click', () => {
+  const timeVal = document.getElementById('add-time').value.trim() || '--:--';
+  const nameVal = document.getElementById('add-name').value.trim();
+  if (!nameVal) { alert('請至少輸入店名／地點'); return; }
+  const id = 'custom-' + Date.now();
+  state.itemsById[id] = { name: nameVal, time: timeVal, desc: '', maps: null, custom: true, tier: null, kind: 'itinerary' };
+  state.itineraryOrder[currentDay].push(id);
+  document.getElementById('add-time').value = '';
+  document.getElementById('add-name').value = '';
+  document.getElementById('add-form').classList.remove('open');
+  persist();
+  renderLists();
+});
+
+// ---- 啟動 ----
+initFirebase();
+renderAll();
+</script>
+</body>
+</html>
